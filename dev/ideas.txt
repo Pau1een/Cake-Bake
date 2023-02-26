@@ -1,0 +1,22 @@
+FIND JANE
+App that you can use while in England that gives you book and filming locations for Jane Austin works. 
+Use the Google Maps API to get directions to a list of sites.  
+Also allow users to track which locations they have visited on the list 
+and leave comments/tips on their experience.
+
+CHOOSE YOUR OWN ADVENTURE
+App that suggests things to do in your area based on your mood.  
+User answers a short quiz to determine their mood. A list of activities is given along with 
+directions to get there.  Use Google Maps API and Eventbrite API.
+
+UR ARK
+App that factors in climate change when buying a home.  Determine if a house is in a flood zone 
+or find out if a house is in an area that has experienced previous disasters.  
+Use of Zillow API, and FEMA API.
+
+CAKE BAKE
+App that helps you find a cake recipe based on what ingredients you have in your kitchen.
+If you have apples and brown sugar, Cake Bake will give you a recipe for Apple Crumb Cake.
+You can also find where to pick up any missing ingredients nearby.
+Use of Edamam API and Kroger API
+

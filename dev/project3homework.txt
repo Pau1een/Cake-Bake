@@ -1,0 +1,62 @@
+
+CAKE BAKE
+App that helps you find a cake recipe based on what ingredients you have in your kitchen.
+If you have apples and brown sugar, Cake Bake will give you a recipe for Apple Crumb Cake.
+You can also find where to pick up any missing ingredients nearby.
+Use of Edamam API and Kroger API
+
+
+    - MVP
+        - Registration Process (Create User name)
+        - User Login and logout
+        - Homepage that has search window that takes in user input of 3 recipe items
+        - Search returns recipes that include your core ingredients
+        - User Recipe Box to store cake recipes
+
+        2.0 phase
+        - Search for missing ingredients by location using Kroger API  
+
+        Nice-To-Haves
+        3.0 phase
+            - Shopping cart linked to grocery delivery service like Amazon Fresh
+            - Search for cakes by country
+            - Ability to submit user rating on recipes
+
+    - Edamam API 
+        - allows cake recipe search
+        = database of 2.3 million recipes in English
+        - Edamam servers support standard HTTP compression using gzip. 
+        - cost is free for developers. Overage cost per hit not allowed.
+            API calls limit is 10,000 month
+            Throttling calls/min is 10/minute
+        - recipe data includes image, ingredients and title
+        - results per call is up to 100 results
+        - Attribution: required  ?
+        - Support: support form
+        - Contract duration: month to month
+        - Doesn't permit data caching unless explicitly permitted by Edamam.  ?
+
+    - Kroger API
+        - Must create account and register application
+        - includes access to other brands such as Ralphs, Food 4 Less, etc.
+        - Products API
+            The Products API allows clients to search the Kroger product catalog.
+            10,000 call per day rate limit.
+            Acceptable:
+            Displaying product data exactly as it is returned from the server. For example, don't shorten or alter product descriptions.
+            Omitting or filtering out parts of product response data that are not relevant to your use case.
+            Prohibited:
+            Comparing products/prices among other retailers.
+            Tracking, sharing, or storing data derived from customer searches or frequently viewed products.
+            Manipulating product data in any way. Meaning you cannot change values such as the name, description, or price.
+            Systematically scraping or gathering response data to create a database. This includes using bots or crawlers to retrieve data from our APIs.
+        - Locations API
+            The Locations API provides clients access to all locations, chains, and departments owned by The Kroger Co.
+            1,600 call a day per endpoint rate limit.
+            Acceptable:
+            Displaying store, department, and chain data exactly as it is returned from the server. For example, don't shorten or alter the names of locations or departments.
+            Omitting or filtering out parts of location, department, or chain response data that are not relevant to your use case.
+            Prohibited:
+            Tracking, sharing, or storing data about the location of a customer.
+            Manipulating location, department, or chain data in any way. Meaning you cannot change values such as the name, address, or hours.
+            Systematically scraping or gathering response data to create a database. This includes using bots or crawlers to retrieve data from our APIs.
