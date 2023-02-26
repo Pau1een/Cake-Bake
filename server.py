@@ -16,13 +16,13 @@ def homepage():
     return render_template('homepage.html')
 
 
-@app.route("/movies")
-def all_movies():
-    """View all movies."""
+@app.route("/reviews")
+def all_reviews():
+    """View all reviews."""
 
-    movies = crud.get_movies()
+    reviews = crud.get_review_by_user_id()
 
-    return render_template("all_movies.html", movies=movies)
+    return render_template("all_reveiws.html", reveiws=reviews)
 
     
 if __name__ == "__main__":
