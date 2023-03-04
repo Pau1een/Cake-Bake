@@ -1,110 +1,105 @@
 """CRUD operations."""
 
-from model import db, User, Ingredient, Recipe, Review, connect_to_db
+from model import db, User, Recipe, Review, connect_to_db
 
 
 def create_user(fname, email, password):
-    """Create and return a new user."""
+    """Create a new user and add it to database."""
 
-    user = User(fname=fname, email=email, password=password)
+    new_user = User(fname=fname, email=email, password=password)
 
-    return user
+    db.session.add(new_user)
+    db.session.commit()
 
-
-def get_user_by_id(user_id):
-    """Return a user by primary key."""
-
-    return User.query.get(user_id)
+    return new_user
 
 
-def get_user_by_email(email):
-    """Return a user by email."""
+def create_recipe(recipe_name, recipe, date_baked, ingredients):
+    """Create a recipe."""
 
-    return User.query.filter(User.email == email).first()
+    new_recipe= Recipe(
+        recipe_name=recipe_name,
+        recipe=recipe,
+        date_baked=date_baked,
+        ingredients=ingredients,
+    )
 
+    db.session.add(new_recipe)
+    db.session.commit()
 
-def get_ingredients_by_name(ingredient_name):
-    """Return ingredients by name."""
-
-    return Ingredient.query.all(ingredient_name)
-
-
-def get_ingredients_by_recipe_id(recipe_id):
-    """Return ingredients by a recipe id."""
-
-    return Ingredient.query.get(recipe_id)
-
-
-def create_recipe(recipe_name, recipe, ingredients):
-    """Create and return a new recipe."""
-
-    recipe = Recipe(recipe_name=recipe_name, recipe=recipe, ingredients=ingredients)
-
-    return recipe
+    return new_recipe
 
 
 def get_recipe_by_name(recipe_name):
     """Return a recipe by name."""
 
-    return Recipe.query.get(recipe_name)
+    db.session.add(Recipe)
+    db.session.commit()
+
+    return Recipe.query.filter_by(recipe_name = recipe_name).first()
 
 
-def get_recipe_by_date_baked(date_baked):
-    """Return a recipe by date baked."""
+def get_review_by_recipe_name(recipe_name):
+    """Return review by a recipe name."""
 
-    return Recipe.query.get(date_baked)
+    db.session.add(Review)
+    db.session.commit()
 
-
-def get_recipe_by_id(recipe_id):
-    """Return a recipe by primary key."""
-
-    return Recipe.query.get(recipe_id)
+    return Review.query.filter_by(recipe_name = recipe_name).all()
 
 
-def get_recipe_by_ingredient(ingredients):
-    """Return a recipe by ingredient."""
+def get_review_by_score(score):
+    """Return review by score."""
 
-    return Recipe.query.get(ingredients)
+    db.session.add(Review)
+    db.session.commit()
 
-
-def get_review_by_recipe_id(recipe_id):
-    """Return review by a recipe id."""
-
-    return Review.query.get(recipe_id)
+    return Review.query.filter_by(score = score).all()
 
 
-def get_review_by_user_id(user_id):
-    """Return review by a user id."""
-
-    return Review.query.get(user_id)
-
-
-def get_review_by_created_at(created_at):
-    """Return review by a recipe id."""
-
-    return Review.query.get(created_at)
-
-
-def create_review(recipe, user_id, date_baked, score):
+def create_review(recipe_name, user_id, date_baked, score):
     """Create and return a new review."""
 
     review = Review(
-        recipe=recipe,
+        recipe_name=recipe_name,
         user_id=user_id,
         date_baked=date_baked,
         score=score
         
     )
 
+    db.session.add(review)
+    db.session.commit()
+
     return review
 
 
 def update_review(review_id, new_score):
     """ Update a review given review_id and the updated score. """
+
     review = Review.query.get(review_id)
     review.score = new_score
 
+    db.session.add(review)
+    db.session.commit()
+
     return review
+
+
+def create_rating(user_id, recipe_id, score):
+    """Create a score."""
+
+    rating = Review(
+    user_id = user_id,
+    recipe_id=recipe_id,
+    score=score
+        
+    )
+
+    db.session.add(rating)
+    db.session.commit()
+
+    return rating
 
 
 if __name__ == "__main__":

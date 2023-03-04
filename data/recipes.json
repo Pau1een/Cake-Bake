@@ -18,18 +18,6 @@
     "ingredients": "Flour, oranges, vanilla, salt, sugar, baking powder, 3 eggs, butter"
   },
   {
-    "recipe_name": "Cheesecake",
-    "recipe": "Take a cream cheese and vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2022-10-12",
-    "ingredients": "Flour, cream cheese, vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
-    "recipe_name": "Blueberry Cake",
-    "recipe": "Take a blueberries and vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2023-02-07",
-    "ingredients": "Flour, blueberries, vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
     "recipe_name": "Apple Crumb Cake",
     "recipe": "Take a apples, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
     "date_baked": "2022-5-09",
@@ -42,14 +30,8 @@
     "ingredients": "Flour, mung beans, vanilla, salt, sugar, baking powder, 3 eggs, butter"
   },
   {
-    "recipe_name": "Red Bean Cake",
-    "recipe": "Take red beans, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2023-02-20",
-    "ingredients": "Flour, red beans, vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
-    "recipe_name": "Cherry Cake",
-    "recipe": "Take cherries, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
+    "recipe_name": "Mango Cake",
+    "recipe": "Take mangos, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
     "date_baked": "2022-04-03",
     "ingredients": "Flour, cherries, vanilla, salt, sugar, baking powder, 3 eggs, butter"
   },
@@ -58,42 +40,6 @@
     "recipe": "Take carrots, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
     "date_baked": "2022-11-25",
     "ingredients": "Flour, carrots, vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
-    "recipe_name": "Caramel Cake",
-    "recipe": "Take caramel, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2022-09-04",
-    "ingredients": "Flour, caramel, vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
-    "recipe_name": "Banana Cake",
-    "recipe": "Take bananas,vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2021-09-01",
-    "ingredients": "Flour, bananas, vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
-    "recipe_name": "Yellow Cake",
-    "recipe": "Take a vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2018-07-23",
-    "ingredients": "Flour, vanilla, salt, sugar, baking powder, 6 eggs, butter"
-  },
-  {
-    "recipe_name": "German Chocolate Cake",
-    "recipe": "Take cocoa, coconut, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2016-02-05",
-    "ingredients": "Flour, cocoa, coconut shaved, vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
-    "recipe_name": "Lemon Cake",
-    "recipe": "Take a lemon, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2014-11-26",
-    "ingredients": "Flour, lemons, vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
-    "recipe_name": "Mango Cake",
-    "recipe": "Take a mango, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "200-08-12",
-    "ingredients": "Flour, mangos, vanilla, salt, sugar, baking powder, 3 eggs, butter"
   },
   {
     "recipe_name": "Grape Sourcreme Cake",
@@ -108,76 +54,10 @@
     "ingredients": "Flour, pears, vanilla, salt, sugar, baking powder, 3 eggs, butter"
   },
   {
-    "recipe_name": "Vanilla Coffee Cake",
-    "recipe": "Take a coffee and vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2022-03-16",
-    "ingredients": "Flour, coffee, vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
-    "recipe_name": "Cinnamon Cake",
-    "recipe": "Take cinnamon, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2022-10-21",
-    "ingredients": "Flour, cinnamon, vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
-    "recipe_name": "Lime Cake",
-    "recipe": "Take a lime, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2021-09-17",
-    "ingredients": "Flour, lime, vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
-    "recipe_name": "Mandarin Cake",
-    "recipe": "Take a mandarin, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2022-01-20",
-    "ingredients": "Flour, mandarin,vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
     "recipe_name": "Vietnamese Bread Pudding",
     "recipe": "Take a banana, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
     "date_baked": "2022-06-12",
     "ingredients": "Flour, vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
-    "recipe_name": "Wedding Cake",
-    "recipe": "Take a vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2021-07-20",
-    "ingredients": "Flour, vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
-    "recipe_name": "Fruit Cake",
-    "recipe": "Take dried fruit, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2022-012-20",
-    "ingredients": "Flour, dried fruit, vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
-    "recipe_name": "Strawberry and Creme Cake",
-    "recipe": "Take strawberries, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2022-06-22",
-    "ingredients": "Flour, strawberries, vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
-    "recipe_name": "Melon Cake",
-    "recipe": "Take melons, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2022-08-14",
-    "ingredients": "Flour, melons, vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
-    "recipe_name": "Blackberry Cake",
-    "recipe": "Take Blackberries, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2023-02-20",
-    "ingredients": "Flour, blackberries, vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
-    "recipe_name": "Raspberry Cake",
-    "recipe": "Take a vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2022-08-08",
-    "ingredients": "Flour, raspberries,vanilla, salt, sugar, baking powder, 3 eggs, butter"
-  },
-  {
-    "recipe_name": "Peach Cake",
-    "recipe": "Take a peach, vanilla bean and crush in to the batter and bake at 350 degress for 1 hour.",
-    "date_baked": "2022-07-20",
-    "ingredients": "Flour, peach, vanilla, salt, sugar, baking powder, 3 eggs, butter"
   }
 
 ]

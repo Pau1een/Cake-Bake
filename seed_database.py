@@ -5,9 +5,7 @@ import json
 from random import choice, randint
 from datetime import datetime
 
-import crud
-import model
-import server
+import crud, model ,server
 
 os.system("dropdb cake")
 os.system("createdb cake")
@@ -19,36 +17,36 @@ model.db.create_all()
 with open("data/recipes.json") as f:
     recipe_data = json.loads(f.read())
 
-# Create recipes, store them in list so we can use them
-# to create fake reviews
+# Create recipes, store them in list to create fake reviews with them.
 recipes_in_db = []
-for recipe in recipe_data:
+for rcp in recipe_data:
     recipe_name, recipe, ingredients = (
-        recipe["recipe_name"],
-        recipe["recipe"],
-        recipe["ingredients"],
+        rcp["recipe_name"],
+        rcp["recipe"],
+        rcp["ingredients"],
     )
-    date_baked = datetime.strptime(recipe["date_baked"], "%Y-%m-%d")
 
-    db_recipe = crud.create_recipe(recipe_name, recipe, ingredients)
+    date_baked = datetime.strptime(rcp["date_baked"], "%Y-%m-%d")
+
+    db_recipe = crud.create_recipe(recipe_name, recipe, date_baked, ingredients)
     recipes_in_db.append(db_recipe)
 
-model.db.session.add_all(recipes_in_db)
-model.db.session.commit()
+# model.db.session.add_all(recipes_in_db)
+# model.db.session.commit()
 
 # Create 10 users; each user will make 10 ratings
 for n in range(10):
     email = f"user{n}@test.com"  
     password = "test"
+    fname = n
 
-    user = crud.create_user(email, password)
-    model.db.session.add(user)
+    user = crud.create_user(fname, email, password)
+    # model.db.session.add(user)
 
     for _ in range(10):
         random_recipe = choice(recipes_in_db)
-        score = randint(1, 10)
+        score = randint(1, 5)
 
-        rating = crud.create_rating(user, random_recipe, score)
-        model.db.session.add(rating)
-
-model.db.session.commit()
+        rating = crud.create_rating(1, random_recipe.recipe_id, score)
+        # model.db.session.add(rating)
+        # model.db.session.commit()
