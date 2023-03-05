@@ -31,8 +31,6 @@ for rcp in recipe_data:
     db_recipe = crud.create_recipe(recipe_name, recipe, date_baked, ingredients)
     recipes_in_db.append(db_recipe)
 
-# model.db.session.add_all(recipes_in_db)
-# model.db.session.commit()
 
 # Create 10 users; each user will make 10 ratings
 for n in range(10):
@@ -41,14 +39,11 @@ for n in range(10):
     fname = n
 
     user = crud.create_user(fname, email, password)
-    # model.db.session.add(user)
 
     print(user)
-    
+
     for _ in range(10):
         random_recipe = choice(recipes_in_db)
         score = randint(1, 5)
 
         rating = crud.create_rating(1, random_recipe.recipe_id, score)
-        # model.db.session.add(rating)
-        # model.db.session.commit()

@@ -3,15 +3,20 @@
 from model import db, User, Recipe, Review, connect_to_db
 
 
-def create_user(fname, email, password):
+def create_user(fname, lname, email, password):
     """Create a new user and add it to database."""
 
-    new_user = User(fname=fname, email=email, password=password)
+    new_user = User(fname=fname, lname=lname, email=email, password=password)
 
     db.session.add(new_user)
     db.session.commit()
 
     return new_user
+
+def get_user_by_email(email):
+    """Return a user by email."""
+
+    return User.query.get(email)
 
 
 def create_recipe(recipe_name, recipe, date_baked, ingredients):
