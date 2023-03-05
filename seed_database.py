@@ -43,6 +43,8 @@ for n in range(10):
     user = crud.create_user(fname, email, password)
     # model.db.session.add(user)
 
+    print(user)
+    
     for _ in range(10):
         random_recipe = choice(recipes_in_db)
         score = randint(1, 5)
