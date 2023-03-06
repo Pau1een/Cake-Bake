@@ -50,6 +50,13 @@ def create_user():
     return render_template("login.html")
 
 
+@app.route('/login_user')
+def show_login_form():
+    """Show login form"""
+
+    return render_template('login.html')
+
+
 
 # @app.route("/login", methods=["POST"])
 # def process_login():
