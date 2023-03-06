@@ -2,17 +2,25 @@
 {% block title %}Cake Bake Home{% endblock %}
 
 {% block body %}
-    <h1>Cake Bake</h1>
+    <h1>Cake Bake Home</h1>
+    <form action="/login" method="POST">
+        <nav>
+            <h2>Log in </h2>
+            <ul>
+                <li><a class="btn btn=primary" href="login.html">Log In</a></li>
+            </ul>
+        </nav>
+    </form>
 
-    <nav>
-        <h2>Log in </h2>
-        <ul>
-            <li><a href="login.html">Log In</a></li>
-        </ul>
         <h2>Create new account</h2>
-        <ul>
-            <li><a href="create_account.html">Create account</a></li>
-        </ul>
-    </nav>
+
+    <form action="/create_account" method="POST">
+        <na>
+            <ul>
+                <li><a class="btn btn=primary" href="create_account.html">Create account</a></li>
+            </ul>
+        </nav>
+    </form>
+    
 
 {% endblock %}

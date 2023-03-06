@@ -2,17 +2,18 @@ from flask import (Flask, render_template, request, flash, session, redirect)
 from model import connect_to_db, db
 import crud
 import os
-import requests
-
-# apikey = os.environ['EDAMAM_KEY']
-# apiid = os.environ['APP_ID']
-
+# import requests
+from pprint import pprint
+from pprint import pformat
+import json
 from jinja2 import StrictUndefined
 
 app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
 
+# apikey = os.environ['EDAMAM_KEY']
+# apiid = os.environ['APP_ID']
 
 @app.route('/')
 def homepage():
