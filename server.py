@@ -22,6 +22,13 @@ def homepage():
     return render_template('homepage.html')
 
 
+@app.route('/create_user')
+def show_search_form():
+    """Show search form"""
+
+    return render_template('create_account.html')
+
+
 @app.route("/create_account", methods=["POST"])
 def create_user():
     """Create a new user."""
@@ -41,6 +48,7 @@ def create_user():
         flash("Account created! Success!")
 
     return render_template("login.html")
+
 
 
 # @app.route("/login", methods=["POST"])
