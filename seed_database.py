@@ -5,7 +5,7 @@ import json
 from random import choice, randint
 from datetime import datetime
 
-import crud, model ,server
+import crud, model, server
 
 os.system("dropdb cake")
 os.system("createdb cake")
@@ -34,13 +34,15 @@ for rcp in recipe_data:
 
 # Create 10 users; each user will make 10 ratings
 for n in range(10):
+    fname = n
+    lname = n
     email = f"user{n}@test.com"  
     password = "test"
-    fname = n
+    
 
-    user = crud.create_user(fname, email, password)
+    new_user = crud.create_user(fname, lname, email, password)
 
-    print(user)
+    print(new_user)
 
     for _ in range(10):
         random_recipe = choice(recipes_in_db)

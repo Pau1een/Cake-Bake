@@ -13,10 +13,18 @@ def create_user(fname, lname, email, password):
 
     return new_user
 
+# def get_user_by_email_password(email, password):
+#     """Return a user by email and password."""
+    
+#     db.session.add(email, password)
+#     db.session.commit()
+
+#     return User.query.get(User)
+
 def get_user_by_email(email):
     """Return a user by email."""
 
-    return User.query.get(email)
+    return User.query.filter(User.email == email).first()
 
 
 def create_recipe(recipe_name, recipe, date_baked, ingredients):

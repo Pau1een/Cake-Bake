@@ -10,17 +10,17 @@ class User(db.Model):
     __tablename__ = "users"
 
     user_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    password = db.Column(db.String(25), nullable=False)
     fname = db.Column(db.String, nullable=False)
     lname = db.Column(db.String, nullable=True)
     phone = db.Column(db.String, nullable=True)
     email = db.Column(db.String, nullable=False, unique=True)
+    password = db.Column(db.String(25), nullable=False)
     address = db.Column(db.String, nullable=True)
 
     reviews = db.relationship("Review", back_populates="users")
 
     def __repr__(self):
-        return f"<User user_id={self.user_id} email={self.email}>"
+        return f"<User user_id={self.user_id} fname={self.fname} email={self.email}>"
 
 
 class Recipe(db.Model):

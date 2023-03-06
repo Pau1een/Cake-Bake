@@ -29,8 +29,8 @@ def show_search_form():
     return render_template('create_account.html')
 
 
-@app.route("/create_account", methods=["POST"])
-def create_user():
+@app.route('/create_account', methods=["POST"])
+def make_user():
     """Create a new user."""
 
     fname = request.form.get("fname")
@@ -39,15 +39,17 @@ def create_user():
     password = request.form.get("password")
 
     user = crud.get_user_by_email(email)
-    print(user)
+    
     if user:
         flash("An account already exists with that email. Try again.")
-        return redirect("/")
+        return render_template('login.html')
     else:
-        user = crud.create_user(fname, lname, email, password)
-        flash("Account created! Success!")
+        new_user = crud.create_user(fname, lname, email, password)
+        db.session.add(new_user)
+        db.session.commit()
+        # flash("Account created! Success!")
 
-    return render_template("login.html")
+        return redirect('login.html')
 
 
 @app.route('/login_user')
@@ -57,23 +59,23 @@ def show_login_form():
     return render_template('login.html')
 
 
+@app.route('/login', methods=["POST"])
+def process_login():
+    """Process user login."""
 
-# @app.route("/login", methods=["POST"])
-# def process_login():
-#     """Process user login."""
+    email = request.form.get("email")
+    password = request.form.get("password")
+        #Check if user email / password is correct or existing
+    user = crud.get_user_by_email_password(email, password)
+    if not user or email != email or password != password:
+        flash("The email or password you entered was incorrect.")
+    else:
+        # Log in user by storing the user's email in session
+        session["email"] = user.email
+        session["password"] = user.password
+        flash(f"Hello {user.fname}!")
 
-#     email = request.form.get("email")
-#     password = request.form.get("password")
-
-#     user = crud.get_user_by_email(email)
-#     if not user or user.password != password:
-#         flash("The email or password you entered was incorrect.")
-#     else:
-#         # Log in user by storing the user's email in session
-#         session["user_email"] = user.email
-#         flash(f"Welcome back, {user.fname}!")
-
-#     return redirect("/")
+    return render_template('user_homepage.html')
 
 
 
