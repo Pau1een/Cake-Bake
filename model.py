@@ -30,14 +30,14 @@ class Recipe(db.Model):
 
     recipe_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     recipe_name = db.Column(db.String)
-    recipe = db.Column(db.Text)
+    recipe_text = db.Column(db.Text)
     ingredients = db.Column(db.Text)
     date_baked = db.Column(db.DateTime, default=datetime.utcnow, nullable=True)
 
     reviews = db.relationship("Review", back_populates="recipe")
 
     def __repr__(self):
-        return f"<Recipe recipe_id={self.recipe_id} recipe_name={self.recipe_name} recipe={self.recipe} date_baked={self.date_baked} reviews={self.reviews} ingredients={self.ingredients}>"
+        return f"<Recipe recipe_id={self.recipe_id} recipe_name={self.recipe_name} recipe_text={self.recipe_text} date_baked={self.date_baked} reviews={self.reviews} ingredients={self.ingredients}>"
 
 
 class Review(db.Model):
@@ -48,7 +48,7 @@ class Review(db.Model):
     review_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"), nullable=True)
     recipe_id = db.Column(db.Integer, db.ForeignKey("recipes.recipe_id"), nullable=True)
-    review = db.Column(db.Text)
+    review_user = db.Column(db.Text)
     created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=True)
     score = db.Column(db.Integer, nullable=True)
     
@@ -56,7 +56,7 @@ class Review(db.Model):
     recipe = db.relationship("Recipe", back_populates="reviews")
 
     def __repr__(self):
-        return f"<Review review_id={self.review_id} user_id={self.user_id} review={self.review} created_at={self.created_at} score={self.score}>"
+        return f"<Review review_id={self.review_id} review_user={self.review_user} created_at={self.created_at} score={self.score}>"
 
 
 def connect_to_db(flask_app, db_uri="postgresql:///cake", echo=False):
