@@ -49,7 +49,7 @@ def make_user():
         db.session.commit()
         # flash("Account created! Success!")
 
-        return redirect('login.html')
+        return redirect('/login_user')
 
 
 @app.route('/login_user')
@@ -66,22 +66,44 @@ def process_login():
     email = request.form.get("email")
     password = request.form.get("password")
         #Check if user email / password is correct or existing
-    user = crud.get_user_by_email_password(email, password)
-    if not user or email != email or password != password:
+    user = crud.get_user_by_email(email)
+    if not user or user.password != password:
         flash("The email or password you entered was incorrect.")
+        return redirect('/login_user')
     else:
         # Log in user by storing the user's email in session
         session["email"] = user.email
         session["password"] = user.password
         flash(f"Hello {user.fname}!")
 
+        return render_template('user_homepage.html')
+
+
+@app.route('/user_homepage')
+def show_user_homepage():
+    """Show user_homepage form"""
+
     return render_template('user_homepage.html')
 
 
+@app.route("/recipes/<recipe_name>/reviews", methods=["POST"])
+def create_review(recipe):
+    """Create a new review by recipe name."""
 
+    cake_review = request.form.get("review")
 
+    if  not cake_review:
+        flash("Wait!  Did you forget to write your review?")
+    else:
+        cake_recipe = crud.get_recipe_by_name(recipe)
 
+        cake_review = crud.create_review(recipe)
+        db.session.add(cake_review)
+        db.session.commit()
 
+        flash(f"You reviewed this recipe {score} out of 5.")
+
+    return redirect(f"/recipes/{recipe}")
 
 
 # @app.route('/reviews')

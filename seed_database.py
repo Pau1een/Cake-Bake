@@ -61,11 +61,11 @@ for x in range(10):
     print(new_review)
 
 
-    for _ in range(10):
-        random_recipe = choice(recipes_in_db)
-        score = randint(1, 5)
+    # for _ in range(10):
+    #     random_recipe = choice(recipes_in_db)
+    #     score = randint(1, 5)
 
-        rating = crud.create_rating(1, random_recipe.recipe_id, score)
+    #     rating = crud.create_rating(1, random_recipe.recipe_id, score)
 
 
 

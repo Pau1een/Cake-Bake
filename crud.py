@@ -59,13 +59,14 @@ def get_review_by_score(score):
     return Review.query.filter_by(score = score).all()
 
 
-def create_review(recipe_id, review_user, score):
+def create_review(users, recipe, review_user, score):
     """Create and return a new review."""
 
     review_user = Review(
-        recipe_id=recipe_id,
+        users=users,
+        recipe=recipe,
         review_user=review_user,
-        score=score
+        score=score,
         
     )
 
@@ -75,10 +76,10 @@ def create_review(recipe_id, review_user, score):
     return review_user
 
 
-def update_review(recipe_id, new_review_user, new_score):
+def update_review(recipe, new_review_user, new_score):
     """ Update a review given recipe name and the updated score. """
 
-    review = Review.query.get(recipe_id)
+    review = Review.query.get(recipe)
     review.score = new_score
     review.review_user = new_review_user
 
