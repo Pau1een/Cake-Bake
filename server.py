@@ -47,7 +47,7 @@ def make_user():
         new_user = crud.create_user(fname, lname, email, password)
         db.session.add(new_user)
         db.session.commit()
-        # flash("Account created! Success!")
+        flash("Account created! Success!")
 
         return redirect('/login_user')
 
@@ -101,9 +101,31 @@ def create_review(recipe):
         db.session.add(cake_review)
         db.session.commit()
 
-        flash(f"You reviewed this recipe {score} out of 5.")
+        # flash(f"You reviewed this recipe {score} out of 5.")
 
     return redirect(f"/recipes/{recipe}")
+
+
+@app.route('/recipe')
+def show_form():
+    """Show recipe search form"""
+
+    return render_template('result_search.html')
+
+
+
+@app.route('/recipes/search')
+def find_recipes():
+    """Search for recipes on EDAMAM"""
+
+    keyword = request.args.get('keyword', '')
+    
+
+
+    url = 'https://api.edamam.com/api/recipes/v2'
+    payload = {'apikey', 'apiid'}
+
+
 
 
 # @app.route('/reviews')
@@ -115,14 +137,7 @@ def create_review(recipe):
 #     return render_template('reviews_recipe_name.html', reviews=reviews)
 
 
-# @app.route('/find_recipes/search')
-# def find_recipes():
-#     """Search for recipes on EDAMAM"""
 
-#     keyword = request.args.get('keyword', '')
-
-#     url = 'https://api.edamam.com/api/recipes/v2'
-#     payload = {'apikey', 'apiid'}
 
 
 if __name__ == "__main__":
