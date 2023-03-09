@@ -2,7 +2,7 @@ from flask import (Flask, render_template, request, flash, session, redirect)
 from model import connect_to_db, db
 import crud
 import os
-# import requests
+import requests
 from pprint import pprint
 from pprint import pformat
 import json
@@ -12,8 +12,8 @@ app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
 
-# apikey = os.environ['EDAMAM_KEY']
-# apiid = os.environ['APP_ID']
+api_key = os.environ['EDAMAM_KEY']
+app_id = os.environ['APP_ID']
 
 @app.route('/')
 def homepage():
@@ -86,6 +86,43 @@ def show_user_homepage():
     return render_template('user_homepage.html')
 
 
+@app.route('/form')
+def show_form():
+    """Show recipe search form"""
+
+    return render_template('result_search.html')
+
+
+@app.route('/recipes/search')
+def edamam_search():
+    """Search for cake recipes on EDAMAM"""
+
+    api_key = os.environ['EDAMAM_KEY']
+    app_id = os.environ['APP_ID']
+
+    url = 'https://api.edamam.com/api/recipes/v2'
+
+    response = requests.get('https://api.edamam.com/api/recipes/v2?type=public&q=cake&app_id=api_key&app_key=app_id&dishType=Desserts&random=true&field=&field=label&field=image&field=images&field=source&field=url&field=ingredientLines&field=ingredients&field=dishType')
+
+    data = response.json()
+    if '_links' in data:
+        recipes = data['_links']['recipes']
+    else:
+        recipes = []
+
+    return render_template('result_search.html', pformat=pformat, data=data, results=recipes)
+
+
+@app.route('/reviews')
+def search_reviews_by_recipe_name():
+    """Search for a review by recipe name"""
+
+    reviews = crud.get_review_by_recipe_name()
+
+    return render_template('reviews_recipe_name.html', reviews=reviews)
+
+
+
 @app.route("/recipes/<recipe_name>/reviews", methods=["POST"])
 def create_review(recipe):
     """Create a new review by recipe name."""
@@ -104,39 +141,6 @@ def create_review(recipe):
         # flash(f"You reviewed this recipe {score} out of 5.")
 
     return redirect(f"/recipes/{recipe}")
-
-
-@app.route('/recipe')
-def show_form():
-    """Show recipe search form"""
-
-    return render_template('result_search.html')
-
-
-
-@app.route('/recipes/search')
-def find_recipes():
-    """Search for recipes on EDAMAM"""
-
-    keyword = request.args.get('keyword', '')
-    
-
-
-    url = 'https://api.edamam.com/api/recipes/v2'
-    payload = {'apikey', 'apiid'}
-
-
-
-
-# @app.route('/reviews')
-# def search_reviews_by_recipe_name():
-#     """Search for a review by recipe name"""
-
-#     reviews = crud.get_review_by_recipe_name()
-
-#     return render_template('reviews_recipe_name.html', reviews=reviews)
-
-
 
 
 
