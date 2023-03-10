@@ -141,7 +141,7 @@ def create_review(recipe):
         db.session.add(cake_review)
         db.session.commit()
 
-        # flash(f"You reviewed this recipe {score} out of 5.")
+        flash(f"You reviewed this recipe {score} out of 5.")
 
     return redirect(f"/recipes/{recipe}")
 
