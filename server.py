@@ -97,14 +97,31 @@ def show_form():
 def edamam_search():
     """Search for cake recipes on EDAMAM"""
 
-    api_key = os.environ['EDAMAM_KEY']
+    app_key = os.environ['EDAMAM_KEY']
     app_id = os.environ['APP_ID']
+    print(app_key)
+    print(app_id)
 
     keyword = request.args.get('search-keyword', '')
     url = 'https://api.edamam.com/api/recipes/v2'
+    payload = {'type': 'public',
+            'q': 'cake',
+            'app_id':  app_id,
+            'app_key': app_key,
+            'dishType': 'Desserts',
+            'random': 'true',
+            'field': 'label',
+            'field': 'image',
+            'field': 'images',
+            'field': 'source',
+            'field': 'url',
+            'field': 'ingredientLines',
+            'field': 'ingredients',
+            'field': 'dishType',
 
-    response = requests.get('https://api.edamam.com/api/recipes/v2?type=public&q=cake&app_id=api_key&app_key=app_id&dishType=Desserts&random=true&field=&field=label&field=image&field=images&field=source&field=url&field=ingredientLines&field=ingredients&field=dishType')
-
+            }
+    # response = requests.get('https://api.edamam.com/api/recipes/v2?type=public&q=cake&app_key=EDAMAM_KEY&app_id=APP_ID&dishType=Desserts&random=true&field=&field=label&field=image&field=images&field=source&field=url&field=ingredientLines&field=ingredients&field=dishType')
+    response = requests.get(url, params=payload)
     data = response.json()
     if '_links' in data:
         recipes = data['_links']['recipes']
@@ -112,7 +129,7 @@ def edamam_search():
         recipes = []
 
 
-    return render_template('search_result_.html', pformat=pformat, data=data, results=recipes)
+    return render_template('search_result.html', pformat=pformat, data=data, results=recipes)
 
 
 
@@ -141,7 +158,7 @@ def create_review(recipe):
         db.session.add(cake_review)
         db.session.commit()
 
-        flash(f"You reviewed this recipe {score} out of 5.")
+        # flash(f"You reviewed this recipe {score} out of 5.")
 
     return redirect(f"/recipes/{recipe}")
 
