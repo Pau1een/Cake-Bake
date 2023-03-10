@@ -90,7 +90,7 @@ def show_user_homepage():
 def show_form():
     """Show recipe search form"""
 
-    return render_template('result_search.html')
+    return render_template('search_form.html')
 
 
 @app.route('/recipes/search')
@@ -100,6 +100,7 @@ def edamam_search():
     api_key = os.environ['EDAMAM_KEY']
     app_id = os.environ['APP_ID']
 
+    keyword = request.args.get('search-keyword', '')
     url = 'https://api.edamam.com/api/recipes/v2'
 
     response = requests.get('https://api.edamam.com/api/recipes/v2?type=public&q=cake&app_id=api_key&app_key=app_id&dishType=Desserts&random=true&field=&field=label&field=image&field=images&field=source&field=url&field=ingredientLines&field=ingredients&field=dishType')
@@ -110,7 +111,9 @@ def edamam_search():
     else:
         recipes = []
 
-    return render_template('result_search.html', pformat=pformat, data=data, results=recipes)
+
+    return render_template('search_result_.html', pformat=pformat, data=data, results=recipes)
+
 
 
 @app.route('/reviews')
