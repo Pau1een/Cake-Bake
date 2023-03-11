@@ -12,8 +12,6 @@ app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
 
-api_key = os.environ['EDAMAM_KEY']
-app_id = os.environ['APP_ID']
 
 @app.route('/')
 def homepage():
