@@ -97,37 +97,30 @@ def edamam_search():
 
     app_key = os.environ['EDAMAM_KEY']
     app_id = os.environ['APP_ID']
+
     print(app_key)
     print(app_id)
 
-    keyword = request.args.get('search-keyword', '')
+    keyword = request.args.get('keyword', '')
+    print(keyword)
     url = 'https://api.edamam.com/api/recipes/v2'
     payload = {'type': 'public',
-            'q': 'cake',
+            'q': f"{keyword},cake",
             'app_id':  app_id,
             'app_key': app_key,
-            'dishType': 'Desserts',
-            'random': 'true',
-            'field': 'label',
-            'field': 'image',
-            'field': 'images',
-            'field': 'source',
-            'field': 'url',
-            'field': 'ingredientLines',
-            'field': 'ingredients',
-            'field': 'dishType',
+            'field': ['label', 'source', 'image', 'url', 'ingredientLines']
 
-            }
-    # response = requests.get('https://api.edamam.com/api/recipes/v2?type=public&q=cake&app_key=EDAMAM_KEY&app_id=APP_ID&dishType=Desserts&random=true&field=&field=label&field=image&field=images&field=source&field=url&field=ingredientLines&field=ingredients&field=dishType')
+}
+    # response = requests.get('https://api.edamam.com/api/recipes/v2?type=public&q=%22cake%22%2C%20keyword&app_id=9f63074f&app_key=9d021611986e18cf28f394015533320c&field=uri&field=label&field=image&field=source&field=url&field=ingredientLines')
     response = requests.get(url, params=payload)
     data = response.json()
-    if '_links' in data:
-        recipes = data['_links']['recipes']
+    # print(data)
+    if 'hits' in data:
+        recipes = data['hits']
     else:
         recipes = []
 
-
-    return render_template('search_result.html', pformat=pformat, data=data, results=recipes)
+    return render_template('search_result.html', pformat=pformat, data=data, results=response, recipes=recipes)
 
 
 

@@ -2,6 +2,24 @@
 {% block title %}Recipe Search Results {% endblock %}
 
 {% block body %}
+    {% for recipe in recipes %}
+        
+
+    <h1> {{ recipe['recipe']['label'] }} </h1>
+    <img src="{{ recipe['recipe']['image'] }}"/>
+    <form action="/recipes/search/{{ recipe }}/recipes" method="POST">
+    <p>
+        
+        <select name="rating">
+        <option value="">Select rating</option>
+        {% for num in range(6) %}
+            <option value="{{ num }}">{{ num }}</option>
+        {% endfor %}
+        </select>
+    </p>
+    <p><input type="submit"></p>
+    </form>
+    {% endfor %}
     <div>
         "_links" : {
             "next" : {
