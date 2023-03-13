@@ -5,19 +5,16 @@
     
     <h2>Welcome to your Baker page! </h2>
     
-
-    <h2>  Recipe Search  </h2>
-    <form action="/get_recipe_by_name" method="POST">
-        <a class="btn btn-primary" href="/form">
-            Click here to search for a recipe
     
+    <form action="/search_for_recipe" method="POST">
+        <a class="btn btn-default" href="/form">
+            Click here to search for a recipe
+    </form>
 
-    <h2>  Review a cake  </h2>
-    <p>Let everyone know how your cake turned out!</p>
-
-
-    <h2> Recipe Box </h2>
-    <p>View your saved recipes here! </p>
+    <form action="/go_to_recipebox" method="POST">
+        <a class="btn btn-default" href="/box">
+            Click here to view your Recipe Box
+    </form>
     
 
 {% endblock %}

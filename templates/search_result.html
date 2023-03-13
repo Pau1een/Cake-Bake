@@ -1,15 +1,33 @@
 {% extends 'base.html' %}
 {% block title %}Recipe Search Results {% endblock %}
 
-{% block body %}
-    {% for recipe in recipes %}
-        
 
-    <h1> {{ recipe['recipe']['label'] }} </h1>
+{% block body %}
+    <h1> Pick your cake below </h1>
+    <h3> Search for another cake:</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+            <a href="/form" class="lead backlink">
+                Search again!
+            </a>
+            </div>
+        </div>
+        <br>
+        <br>
+
+    {% for recipe in recipes %}
+
+        <div id="recipe-search-results">
+
+    <h2> {{ recipe['recipe']['label'] }} </h2>
     <img src="{{ recipe['recipe']['image'] }}"/>
+    <h3> {{ recipe['recipe']['ingredientLines'] }} </h3>
+    <h4> {{ recipe['recipe']['source'] }} </h4>
+    <a href="{{ recipe['recipe']['url'] }}" target="_blank">Click here for full recipe!</a>
     <form action="/recipes/search/{{ recipe }}/recipes" method="POST">
+    
     <p>
-        
         <select name="rating">
         <option value="">Select rating</option>
         {% for num in range(6) %}
@@ -20,34 +38,39 @@
     <p><input type="submit"></p>
     </form>
     {% endfor %}
-    <div>
+
+    <br>
+    <h3> Search for another cake</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+            <a href="/form" class="lead backlink">
+                Search again
+
+        <h3> Return to Homepage:</h3>
+        <div class="container">
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                <a href="/user_homepage" class="lead backlink">
+                    Homepage
+                </a>
+                </div>
+            </div>
+    <!-- <div>
         "_links" : {
             "next" : {
                 "title" : "Next page",
                 "href" : "https://api.edamam.com/api/food-database/v2/parser?..."
             }
         }
-    </div>
+    </div> -->
 
-    <div class="row">
+    <!-- <div class="row">
         <div class="col">
             <div id="results-as-json">
                 <h2>Results as JSON</h2>
                 <pre>{{ pformat(data) }}</pre>pre>
         </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col d-flex justify-content-center">
-            <a href="/form" class="lead backlink">
-                Go back to the search form
-            </a>
-            </div>
-        </div>
-
-        <div id="recipe-search-results">
-            <h2>Recipe Search Results</h2>
-
+    </div> -->
 
 {% endblock %}

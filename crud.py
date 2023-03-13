@@ -47,6 +47,14 @@ def get_recipe_by_name(recipe_name):
     return Recipe.query.filter_by(recipe_name = recipe_name).first()
 
 
+# def save_as_favorite(user_id, venue_id, notes):
+#     """Save and return a favorite."""
+
+#     favorite = Favorite(user_id=user_id, venue_id=venue_id, notes=notes)
+
+#     return favorite
+
+
 def get_review_by_recipe_id(recipe_id):
     """Return review by a recipe id."""
 

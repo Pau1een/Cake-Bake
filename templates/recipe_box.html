@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
-{% block title %}Review Search by recipe name {% endblock %}
+{% block title %}Recipe Box{% endblock %}
 
 {% block body %}
 <div class="container">
     <div class="row">
     <div class="col">
-        <h2>Review a Cake</h2>
-        <h3>Leave notes on how your cake turned out</h3>
+        <h1>Recipe Box</h1>
 
-        <form method="POST" action="/reviews">
+
+        <h2>Search your saved cake recipes by entering a main ingredient below:</h2>
+
+        <form method="GET" action="/reviews">
         <div class="row">
             <label class="form-label above" for="search-keyword">Main ingredient or Cake name</label> 
             <small class="form-text text-muted">

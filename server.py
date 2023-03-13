@@ -124,6 +124,13 @@ def edamam_search():
 
 
 
+@app.route('/box')
+def view_saved_recipes():
+    """Show saved recipes"""
+
+    return render_template('recipe_box.html')
+
+
 @app.route('/reviews')
 def search_reviews_by_recipe_name():
     """Search for a review by recipe name"""
@@ -134,7 +141,7 @@ def search_reviews_by_recipe_name():
 
 
 
-@app.route("/recipes/<recipe_name>/reviews", methods=["POST"])
+@app.route("/recipe_reviews", methods=["POST"])
 def create_review(recipe):
     """Create a new review by recipe name."""
 
@@ -152,6 +159,17 @@ def create_review(recipe):
         # flash(f"You reviewed this recipe {score} out of 5.")
 
     return redirect(f"/recipes/{recipe}")
+
+
+@app.route("/logout")
+def logout_user():
+    """Log out user."""
+
+    # Remove user from session when user clicks "logout" 
+    del session["user_id"]
+    flash("You have logged out.")
+    return redirect("/")
+
 
 
 
