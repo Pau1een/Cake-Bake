@@ -26,51 +26,32 @@
     <h4> {{ recipe['recipe']['source'] }} </h4>
     <a href="{{ recipe['recipe']['url'] }}" target="_blank">Click here for full recipe!</a>
     <form action="/recipes/search/{{ recipe }}/recipes" method="POST">
-    
     <p>
-        <select name="rating">
-        <option value="">Select rating</option>
-        {% for num in range(6) %}
-            <option value="{{ num }}">{{ num }}</option>
-        {% endfor %}
-        </select>
-    </p>
-    <p><input type="submit"></p>
+    <form method="POST" action="/save_recipe">
+        <p>
+            <input type="submit" value="Save to Recipe Box">
+        </p>
     </form>
     {% endfor %}
-
     <br>
-    <h3> Search for another cake</h3>
     <div class="container">
         <div class="row">
             <div class="col d-flex justify-content-center">
             <a href="/form" class="lead backlink">
-                Search again
-
-        <h3> Return to Homepage:</h3>
+                Click here to search again
+            </a>
+        </div>
+    </div>
         <div class="container">
             <div class="row">
                 <div class="col d-flex justify-content-center">
                 <a href="/user_homepage" class="lead backlink">
-                    Homepage
+                    Click here to return to your Homepage
                 </a>
                 </div>
             </div>
-    <!-- <div>
-        "_links" : {
-            "next" : {
-                "title" : "Next page",
-                "href" : "https://api.edamam.com/api/food-database/v2/parser?..."
-            }
-        }
-    </div> -->
 
-    <!-- <div class="row">
-        <div class="col">
-            <div id="results-as-json">
-                <h2>Results as JSON</h2>
-                <pre>{{ pformat(data) }}</pre>pre>
-        </div>
-    </div> -->
+
+    
 
 {% endblock %}

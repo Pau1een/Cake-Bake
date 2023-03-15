@@ -2,36 +2,44 @@
 {% block title %}Recipe Box{% endblock %}
 
 {% block body %}
-<div class="container">
-    <div class="row">
-    <div class="col">
-        <h1>Recipe Box</h1>
-
-
-        <h2>Search your saved cake recipes by entering a main ingredient below:</h2>
-
-        <form method="GET" action="/reviews">
-        <div class="row">
-            <label class="form-label above" for="search-keyword">Main ingredient or Cake name</label> 
-            <small class="form-text text-muted">
-            </small>
-
-            <input
-            id="search-keyword"
-            class="form-control"
-            type="text"
-            name="keyword"
-            > 
-        </div>
-        <br>
-        </div>
-        <div class="row mt-4">
-            <div class="col-3">
-            <input type="submit" value="Search recipes" class="btn btn-primary">
-            </div>
-        </div>
-        </form>
-    </div>
-    </div>
-</div>
-{% endblock %}
+    <form id="myForm" method="POST" action="/save_recipe">
+        <p>
+            <input type="text" name="recipeName" placeholder="Recipe Name">
+        </p>
+        <p>
+            <textarea name="ingredients" placeholder="Ingredients"></textarea>
+        </p>
+        <p>
+            <input type="submit" value="Save to Recipe Box">
+        </p>
+    </form>
+    
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // prevent the form from submitting normally
+    
+        // get the form data
+        const formData = new FormData(event.target);
+    
+        // make the fetch call
+        fetch("/save_recipe", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+            throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            // do something with the response data
+        })
+        .catch(error => {
+            console.error("There was a problem with the fetch call:", error);
+        });
+        });
+    </script>
+    
+                {% endblock %}

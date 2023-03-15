@@ -22,14 +22,14 @@ def homepage():
 
 @app.route('/create_user')
 def show_search_form():
-    """Show search form"""
+    """Show form to create account"""
 
     return render_template('create_account.html')
 
 
 @app.route('/create_account', methods=["POST"])
 def make_user():
-    """Create a new user."""
+    """Create a new user account."""
 
     fname = request.form.get("fname")
     lname = request.form.get("lname")
@@ -102,26 +102,32 @@ def edamam_search():
     print(app_id)
 
     keyword = request.args.get('keyword', '')
+    excluded = request.args.get('excluded-food')
     print(keyword)
     url = 'https://api.edamam.com/api/recipes/v2'
     payload = {'type': 'public',
             'q': f"{keyword},cake",
             'app_id':  app_id,
             'app_key': app_key,
-            'field': ['label', 'source', 'image', 'url', 'ingredientLines']
+            'field': ['label', 'source', 'image', 'url', 'ingredientLines'],
 
 }
     # response = requests.get('https://api.edamam.com/api/recipes/v2?type=public&q=%22cake%22%2C%20keyword&app_id=9f63074f&app_key=9d021611986e18cf28f394015533320c&field=uri&field=label&field=image&field=source&field=url&field=ingredientLines')
     response = requests.get(url, params=payload)
     data = response.json()
     # print(data)
+    if excluded:
+        payload['excluded'] = excluded
+
+    response = requests.get(url, params=payload)
+    data = response.json()
+
     if 'hits' in data:
         recipes = data['hits']
     else:
         recipes = []
 
     return render_template('search_result.html', pformat=pformat, data=data, results=response, recipes=recipes)
-
 
 
 @app.route('/box')
@@ -131,44 +137,69 @@ def view_saved_recipes():
     return render_template('recipe_box.html')
 
 
-@app.route('/reviews')
-def search_reviews_by_recipe_name():
-    """Search for a review by recipe name"""
+@app.route("/save_recipe", methods=["POST"])
+def save_recipes():
+    """Save a recipe to recipe box"""
 
-    reviews = crud.get_review_by_recipe_name()
+    recipe_box = []
 
-    return render_template('reviews_recipe_name.html', reviews=reviews)
+    label = request.form.get("label")
+    source = request.form.get("source")
+    image = request.form.get("image")
+    url = request.form.get("url")
 
+    saved_recipe = {
+        "name": label,
+        "source": source,
+        "image": image,
+        "url": url,
+    }
 
+    recipe_box.append(saved_recipe)
 
-@app.route("/recipe_reviews", methods=["POST"])
-def create_review(recipe):
-    """Create a new review by recipe name."""
-
-    cake_review = request.form.get("review")
-
-    if  not cake_review:
-        flash("Wait!  Did you forget to write your review?")
-    else:
-        cake_recipe = crud.get_recipe_by_name(recipe)
-
-        cake_review = crud.create_review(recipe)
-        db.session.add(cake_review)
-        db.session.commit()
-
-        # flash(f"You reviewed this recipe {score} out of 5.")
-
-    return redirect(f"/recipes/{recipe}")
+    return jsonify(saved_recipe)
 
 
-@app.route("/logout")
-def logout_user():
-    """Log out user."""
 
-    # Remove user from session when user clicks "logout" 
-    del session["user_id"]
-    flash("You have logged out.")
-    return redirect("/")
+
+
+# @app.route('/reviews')
+# def search_reviews_by_recipe_name():
+#     """Search for a review by recipe name"""
+
+#     reviews = crud.get_review_by_recipe_name()
+
+#     return render_template('reviews_recipe_name.html', reviews=reviews)
+
+
+# @app.route("/recipe_reviews", methods=["POST"])
+# def create_review(recipe):
+#     """Create a new review by recipe name."""
+
+#     cake_review = request.form.get("review")
+
+#     if  not cake_review:
+#         flash("Wait!  Did you forget to write your review?")
+#     else:
+#         cake_recipe = crud.get_recipe_by_name(recipe)
+
+#         cake_review = crud.create_review(recipe)
+#         db.session.add(cake_review)
+#         db.session.commit()
+
+#         # flash(f"You reviewed this recipe {score} out of 5.")
+
+#     return redirect(f"/recipes/{recipe}")
+
+
+# @app.route("/logout")
+# def logout_user():
+#     """Log out user."""
+
+    # # Remove user from session when user clicks "logout" 
+    # del session["user_id"]
+    # flash("You have logged out.")
+    # return redirect("/")
 
 
 
