@@ -1,3 +1,6 @@
+'use strict';
+
+function selectRecipeButton(new_array) {
 const buttons = document.querySelectorAll('button');
 
 for(const button of buttons) {
@@ -8,9 +11,10 @@ for(const button of buttons) {
         const new_array = info.split(",)");
         console.log(new_array);
     });
-    
-}
-
+    fetch('/save_recipe')
+    .then((response) => response.text())
+    .then(selectRecipeButton);
+}}
 
 const saveRecipe = async (event) => {
     event.preventDefault();
@@ -24,13 +28,3 @@ const saveRecipe = async (event) => {
     
 };
 
-const form = document.querySelector("#recipe-search-results");
-form.addEventListener("submit", saveRecipe);
-
-
-    document.getElementById("myForm").addEventListener("submit", function(event) {
-    Event.preventDefault()} 
-
-    // make the fetch call
-    
-    )

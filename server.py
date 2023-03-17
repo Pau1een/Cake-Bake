@@ -7,6 +7,8 @@ from pprint import pprint
 from pprint import pformat
 import json
 from jinja2 import StrictUndefined
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
 app.secret_key = "dev"
@@ -99,17 +101,16 @@ def show_user_homepage():
 @app.route('/update_user_info', methods=['GET', 'POST'])
 def update_user_info():
     if request.method == 'POST':
-        # need to writer code here to update user information to the database
-        fname = request.form['fname']
-        lname = request.form['lname']
-        email = request.form['email']
-        password = request.form['password']
-        # ... save to database here somehow...
+        user = user.query.first() # or query based on some condition to retrieve the user
+        user.fname = request.form['fname']
+        user.lname = request.form['lname']
+        user.email = request.form['email']
+        user.password = request.form['password']
+        db.session.commit() # save changes to the database
         return 'User information updated successfully'
     else:
-        # Retrieve the user information from the database here
-        # ... retrieve from database ...
-        return render_template('update_user_info.html', fname=fname, lname=lname, email=email, password=password)
+        user = user.query.first() # or query based on some condition to retrieve the user
+        return render_template('update_user_info.html', fname=user.fname, lname=user.lname, email=user.email, password=user.password)
 
 
 
