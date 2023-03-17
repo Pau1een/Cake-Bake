@@ -222,14 +222,13 @@ def save_recipes():
 #     return redirect(f"/recipes/{recipe}")
 
 
-# @app.route("/logout")
-# def logout_user():
-#     """Log out user."""
-
-    # # Remove user from session when user clicks "logout" 
-    # del session["user_id"]
-    # flash("You have logged out.")
-    # return redirect("/")
+@app.route("/logout")
+def logout_user():
+    """Log out user."""
+    # Remove user from session when user clicks "logout" 
+    session.clear()
+    flash("You have logged out.")
+    return redirect('/')
 
 
 
