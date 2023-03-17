@@ -73,7 +73,7 @@ def process_login():
     else:
         # Log in user by storing the user's email in session
         session["email"] = user.email
-        session["password"] = user.password
+        session["user_id"] = user.user_id
         flash(f"Hello {user.fname}!")
 
         return render_template('user_homepage.html')

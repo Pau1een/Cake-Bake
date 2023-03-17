@@ -14,9 +14,11 @@ for(const button of buttons) {
     fetch('/save_recipe')
     .then((response) => response.text())
     .then(selectRecipeButton);
+
 }}
 
 const saveRecipe = async (event) => {
+    document.querySelector('#recipe_box');
     event.preventDefault();
     const form = event.target;
     const formData = new FormData(form);
