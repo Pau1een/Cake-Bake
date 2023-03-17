@@ -2,44 +2,31 @@
 {% block title %}Recipe Box{% endblock %}
 
 {% block body %}
-    <form id="myForm" method="POST" action="/save_recipe">
-        <p>
-            <input type="text" name="recipeName" placeholder="Recipe Name">
-        </p>
-        <p>
-            <textarea name="ingredients" placeholder="Ingredients"></textarea>
-        </p>
-        <p>
-            <input type="submit" value="Save to Recipe Box">
-        </p>
-    </form>
-    
-    <script>
-        document.getElementById("myForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // prevent the form from submitting normally
-    
-        // get the form data
-        const formData = new FormData(event.target);
-    
-        // make the fetch call
-        fetch("/save_recipe", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => {
-            if (!response.ok) {
-            throw new Error("Network response was not ok");
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
-            // do something with the response data
-        })
-        .catch(error => {
-            console.error("There was a problem with the fetch call:", error);
-        });
-        });
-    </script>
-    
-                {% endblock %}
+
+<body>
+	<h1>RECIPE BOX</h1>
+    <h2>Saved recipes below:</h2>
+	<div id="my-recipe-box"></div>
+
+	<script src="saved-recipe.js"></script>
+</body>
+</html>
+
+<div class="container">
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+        <a href="/form" class="lead backlink">
+            Click here to search for a cake recipe
+        </a>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+        <a href="/user_homepage" class="lead backlink">
+            Click here to return to your Homepage
+        </a>
+        </div>
+</div>
+
+{% endblock %}

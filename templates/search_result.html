@@ -15,12 +15,12 @@
         </div>
         <br>
         <br>
-
+    
     {% for recipe in recipes %}
 
-        <div id="recipe-search-results">
-
-    <h2> {{ recipe['recipe']['label'] }} </h2>
+    <div id="recipe-search-results">
+    <h2> {{ recipe['recipe']['label'] }} </h2> 
+    </div>
     <img src="{{ recipe['recipe']['image'] }}"/>
     <h3> {{ recipe['recipe']['ingredientLines'] }} </h3>
     <h4> {{ recipe['recipe']['source'] }} </h4>
@@ -29,8 +29,9 @@
     <p>
     <form method="POST" action="/save_recipe">
         <p>
-            <input type="submit" value="Save to Recipe Box">
+            <button type="submit" value="{{ recipe['recipe']['label']}},{{ recipe['recipe']['source']}},{{ recipe['recipe']['image'] }},{{ recipe['recipe']['url'] }}">Save to Recipe Box</button>
         </p>
+
     </form>
     {% endfor %}
     <br>
@@ -52,6 +53,6 @@
             </div>
 
 
-    
+    <script src="/static/js/saved-recipe.js"></script>
 
 {% endblock %}

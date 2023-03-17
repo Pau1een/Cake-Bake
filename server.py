@@ -1,4 +1,4 @@
-from flask import (Flask, render_template, request, flash, session, redirect)
+from flask import (Flask, render_template, request, flash, session, redirect, jsonify)
 from model import connect_to_db, db
 import crud
 import os
@@ -77,11 +77,40 @@ def process_login():
         return render_template('user_homepage.html')
 
 
+@app.route('/profile')
+def show_profile_page():
+    """Show user profile page"""
+    user_fname = session.get('user_fname')
+    user_lname = session.get('user_lname')
+    user_email = session.get('user_email')
+    user_password = session.get('user_password')
+    user = crud.get_user_by_email(user_email)
+
+    return render_template('profile_page.html', user=user)
+
+
 @app.route('/user_homepage')
 def show_user_homepage():
     """Show user_homepage form"""
 
     return render_template('user_homepage.html')
+
+
+@app.route('/update_user_info', methods=['GET', 'POST'])
+def update_user_info():
+    if request.method == 'POST':
+        # need to writer code here to update user information to the database
+        fname = request.form['fname']
+        lname = request.form['lname']
+        email = request.form['email']
+        password = request.form['password']
+        # ... save to database here somehow...
+        return 'User information updated successfully'
+    else:
+        # Retrieve the user information from the database here
+        # ... retrieve from database ...
+        return render_template('update_user_info.html', fname=fname, lname=lname, email=email, password=password)
+
 
 
 @app.route('/form')
