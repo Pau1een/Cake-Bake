@@ -14,22 +14,23 @@
 {% endblock %}
 
 {% block body %}
-<form action="update_user.php" method="POST">
-    <label for="fname">First Name:</label>
-    <input type="text" id="fname" name="fname"><br><br>
 
-    <label for="lname">Last Name:</label>
-    <input type="text" id="lname" name="lname"><br><br>
 
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="email"><br><br>
-    
-    <label for="password">Password:</label>
-    <input type="text" id="password" name="password"><br><br>
-    
-    <input type="submit" value="Update">
-</form>
+    <form method="post" action="{{ url_for('update_profile') }}">
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" fname="fname" value="{{ fname }}"><br><br>
 
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" lname="lname" value="{{lname}}"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" email="email" value="{{email}}"><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="text" id="password" password="password" value="{{password}}"><br><br>
+
+        <input type="submit" value="Update">
+    </form>
 
     <br>
 

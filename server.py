@@ -88,7 +88,7 @@ def show_profile_page():
     user_password = session.get('user_password')
     user = crud.get_user_by_email(user_email)
 
-    return render_template('profile_page.html', user=user)
+    return render_template('profile_page.html')
 
 
 @app.route('/user_homepage')
@@ -98,20 +98,25 @@ def show_user_homepage():
     return render_template('user_homepage.html')
 
 
-@app.route('/update_user_info', methods=['GET', 'POST'])
-def update_user_info():
-    if request.method == 'POST':
-        user = user.query.first() # or query based on some condition to retrieve the user
-        user.fname = request.form['fname']
-        user.lname = request.form['lname']
-        user.email = request.form['email']
-        user.password = request.form['password']
-        db.session.commit() # save changes to the database
-        return 'User information updated successfully'
-    else:
-        user = user.query.first() # or query based on some condition to retrieve the user
-        return render_template('update_user_info.html', fname=user.fname, lname=user.lname, email=user.email, password=user.password)
+@app.route('/update_profile', methods=['POST'])
+def update_profile():
+    data = request.get_json()
+    fname = data.get['fname']
+    lname = data.get['lname']
+    email = data.get['email']
+    password = data.get['password']
+    
+    if not email or not password:
+        return jsonify({'error': 'Name and email are required'})
 
+    user = user.query.first()
+    user.fname = fname
+    user.lname = lname
+    user.email = email
+    user.password = password
+    db.session.commit()
+
+    return jsonify({'success': True})
 
 
 @app.route('/form')
