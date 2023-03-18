@@ -44,6 +44,12 @@ def get_favorite_recipes_by_user(user_id):
     return Favorite_recipe.query.filter_by(user_id = user_id).all()
 
 
+def get_favorite_recipes_by_link(recipe_link, user_id):
+    """Return favorite recipe by url."""
+
+    return Favorite_recipe.query.filter_by(recipe_link = recipe_link, user_id = user_id).first()
+
+
 def save_review(review):
     """ Save a review. """
 

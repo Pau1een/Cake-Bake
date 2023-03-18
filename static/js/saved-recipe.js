@@ -17,6 +17,6 @@ const saveToFavorite = (recipe) => {
         headers: headers
     })
     .then((response) => response.text())
-    .then((data) => console.log(data))
+    .then((data) => alert(data))
 
 }

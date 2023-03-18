@@ -16,9 +16,12 @@
         <h3> {{ recipe.favorite_ingredients }} </h3>
         <h4> {{ recipe.favorite_source }} </h4>
         <a href="{{ recipe.recipe_link }}" target="_blank">Click here for full recipe!</a>
+        
         <form>
             <label for="review">Leave a review or notes:</label><br>
-            <textarea id="review" name="review" rows="4" cols="50"></textarea>
+            <textarea id="review" name="review" rows="4" cols="50"></textarea><br>
+            <input type="submit" value="Save">
+
         </form>
     </div>
     {% endfor %}

@@ -162,7 +162,7 @@ def view_saved_recipes():
     return render_template('recipe_box.html', recipes=display)
 
 
-@app.route("/save_recipe", methods=["POST"])
+@app.route("/save_recipe", methods=["POST",])
 def save_recipes():
     """Save a recipe to recipe box"""
 
@@ -173,11 +173,25 @@ def save_recipes():
     recipe_link = request.json["recipe_link"]
     user_id = session.get('user_id')
 
-    favorite_recipe = crud.save_as_favorite(user_id, favorite_name, favorite_img, favorite_ingredients, favorite_source, recipe_link)
-    db.session.add(favorite_recipe)
-    db.session.commit()
+    existing_recipe = crud.get_favorite_recipes_by_link(recipe_link, user_id)
+    print(existing_recipe)
+    if existing_recipe:
+        return "Recipe already saved"
 
-    return "added to favorite"
+    else:
+        favorite_recipe = crud.save_as_favorite(user_id, favorite_name, favorite_img, favorite_ingredients, favorite_source, recipe_link)
+        db.session.add(favorite_recipe)
+        db.session.commit()
+
+    return "Added to your recipe box!"
+
+
+# @app.route('/save_review', methods=['POST'])
+# def save_review():
+#     review = request.form["review"]
+#     return "Saved"
+
+
 
 
 # @app.route('/update_profile', methods=['POST'])
