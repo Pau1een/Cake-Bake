@@ -171,6 +171,7 @@ def save_recipes():
     favorite_ingredients = request.json["favorite_ingredients"]
     favorite_source = request.json["favorite_source"]
     recipe_link = request.json["recipe_link"]
+    review = review
     user_id = session.get('user_id')
 
     existing_recipe = crud.get_favorite_recipes_by_link(recipe_link, user_id)
@@ -186,10 +187,16 @@ def save_recipes():
     return "Added to your recipe box!"
 
 
-# @app.route('/save_review', methods=['POST'])
-# def save_review():
-#     review = request.form["review"]
-#     return "Saved"
+@app.route('/save_review', methods=['POST'])
+def save_review():
+    review = request.form.get("review")
+    review = crud.save_review(review)
+
+    db.session.add()
+    db.session.commit()
+    flash("Review/notes sucessfully saved")
+
+    return "Saved"
 
 
 

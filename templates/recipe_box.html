@@ -13,20 +13,24 @@
     <div class="recipe-favorite-results">
         <h2> {{ recipe.favorite_name }} </h2> 
         <img src="{{ recipe.favorite_img }}"/>
-        <h3> {{ recipe.favorite_ingredients }} </h3>
-        <h4> {{ recipe.favorite_source }} </h4>
+        <h4> {{ recipe.favorite_ingredients }} </h4>
+        <h3> {{ recipe.favorite_source }} </h3> 
         <a href="{{ recipe.recipe_link }}" target="_blank">Click here for full recipe!</a>
-        
-        <form>
+        <br>
+        <br>
+        <br>
+        <form action="/save_review" method="POST">
             <label for="review">Leave a review or notes:</label><br>
             <textarea id="review" name="review" rows="4" cols="50"></textarea><br>
-            <input type="submit" value="Save">
-
+            <input type="submit" value="Save" class="btn btn-primary">
         </form>
     </div>
     {% endfor %}
     
     </div>
+<br>
+<br>
+
 <div class="container">
     <div class="row">
         <div class="col d-flex justify-content-center">
