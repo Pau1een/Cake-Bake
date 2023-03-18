@@ -1,6 +1,6 @@
 """CRUD operations."""
 
-from model import db, User, Recipe, Review, Favorite_recipe, connect_to_db
+from model import db, User, Favorite_recipe, connect_to_db
 
 
 def create_user(fname, lname, email, password):
@@ -22,26 +22,12 @@ def get_user_by_email(email):
     return User.query.filter(User.email == email).first()
 
 
-def create_recipe(recipe_name, recipe_text, date_baked, ingredients):
-    """Create a recipe."""
+def update_user_profile(fname, lname, email, password):
+    """Save and update user profile."""
 
-    new_recipe= Recipe(
-        recipe_name=recipe_name,
-        recipe_text=recipe_text,
-        date_baked=date_baked,
-        ingredients=ingredients,
-    )
+    updated_profile = User(fname=fname, lname=lname, email=email, password=password)
 
-    db.session.add(new_recipe)
-    db.session.commit()
-
-    return new_recipe
-
-
-def get_recipe_by_name(recipe_name):
-    """Return a recipe by name."""
-
-    return Recipe.query.filter_by(recipe_name = recipe_name).first()
+    return updated_profile
 
 
 def save_as_favorite(user_id, favorite_name, favorite_img, favorite_ingredients, favorite_source, recipe_link):
@@ -58,46 +44,16 @@ def get_favorite_recipes_by_user(user_id):
     return Favorite_recipe.query.filter_by(user_id = user_id).all()
 
 
-def get_review_by_recipe_id(recipe_id):
-    """Return review by a recipe id."""
+def save_review(review):
+    """ Save a review. """
 
-    return Review.query.filter_by(recipe_id = recipe_id).all()
-
-
-def get_review_by_score(score):
-    """Return review by score."""
-
-    return Review.query.filter_by(score = score).all()
-
-
-def create_review(users, recipe, review_user, score):
-    """Create and return a new review."""
-
-    review_user = Review(
-        users=users,
-        recipe=recipe,
-        review_user=review_user,
-        score=score,
-        
-    )
-
-    db.session.add(review_user)
-    db.session.commit()
-
-    return review_user
-
-
-def update_review(recipe, new_review_user, new_score):
-    """ Update a review given recipe name and the updated score. """
-
-    review = Review.query.get(recipe)
-    review.score = new_score
-    review.review_user = new_review_user
+    review = Favorite_recipe.query.get(review)
 
     db.session.add(review)
     db.session.commit()
 
     return review
+
 
 
 if __name__ == "__main__":

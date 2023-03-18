@@ -79,6 +79,22 @@ def process_login():
         return render_template('user_homepage.html')
 
 
+@app.route("/logout")
+def logout_user():
+    """Log out user."""
+    # Remove user from session when user clicks "logout" 
+    session.clear()
+    flash("You have logged out.")
+    return redirect('/')
+
+
+@app.route('/user_homepage')
+def show_user_homepage():
+    """Show user_homepage form"""
+
+    return render_template('user_homepage.html')
+
+
 @app.route('/profile')
 def show_profile_page():
     """Show user profile page"""
@@ -89,34 +105,6 @@ def show_profile_page():
     user = crud.get_user_by_email(user_email)
 
     return render_template('profile_page.html')
-
-
-@app.route('/user_homepage')
-def show_user_homepage():
-    """Show user_homepage form"""
-
-    return render_template('user_homepage.html')
-
-
-@app.route('/update_profile', methods=['POST'])
-def update_profile():
-    data = request.get_json()
-    fname = data.get['fname']
-    lname = data.get['lname']
-    email = data.get['email']
-    password = data.get['password']
-    
-    if not email or not password:
-        return jsonify({'error': 'Name and email are required'})
-
-    user = user.query.first()
-    user.fname = fname
-    user.lname = lname
-    user.email = email
-    user.password = password
-    db.session.commit()
-
-    return jsonify({'success': True})
 
 
 @app.route('/form')
@@ -189,26 +177,30 @@ def save_recipes():
     db.session.add(favorite_recipe)
     db.session.commit()
 
-    # recipe_box = []
-
-    # label = request.form.get("label")
-    # source = request.form.get("source")
-    # image = request.form.get("image")
-    # url = request.form.get("url")
-
-    # saved_recipe = {
-    #     "name": label,
-    #     "source": source,
-    #     "image": image,
-    #     "url": url,
-    # }
-
-    # recipe_box.append(saved_recipe)
-
     return "added to favorite"
 
 
+# @app.route('/update_profile', methods=['POST'])
+# def update_profiles():
+#     fname = request.json["fname"]
+#     lname = request.json["lname"]
+#     email = request.json["email"]
+#     password = request.json["password"]
+    
+#     if not email or not password:
+#         return jsonify({'error': 'Name and email are required'})
 
+#     user = user.query.first()
+#     user.fname = fname
+#     user.lname = lname
+#     user.email = email
+#     user.password = password
+    
+#     updated_profile = crud.update_user_profile(fname, lname, email, password)
+#     db.session.add(updated_profile)
+#     db.session.commit()
+
+#     return "your profile is now updated"
 
 
 # @app.route('/reviews')
@@ -238,17 +230,6 @@ def save_recipes():
 #         # flash(f"You reviewed this recipe {score} out of 5.")
 
 #     return redirect(f"/recipes/{recipe}")
-
-
-@app.route("/logout")
-def logout_user():
-    """Log out user."""
-    # Remove user from session when user clicks "logout" 
-    session.clear()
-    flash("You have logged out.")
-    return redirect('/')
-
-
 
 
 if __name__ == "__main__":

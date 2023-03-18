@@ -6,23 +6,18 @@
 
     <h1>Profile Page</h1>
     <h2>Update your information below:</h2>
-    <div id="my-profile">
 
-    <form method="post" action="{{ url_for('update_profile') }}">
-        <label for="fname">First Name:</label>
-        <input type="text" id="fname" fname="fname" value="{{ fname }}"><br><br>
+    {% for user in users %}
 
-        <label for="lname">Last Name:</label>
-        <input type="text" id="lname" lname="lname" value="{{lname}}"><br><br>
+    <div class="update-profile">
+        <h2> {{ user.fname }} </h2> 
+        <h2> {{ user.lname }} </h2> 
+        <h2> {{ user.email}} </h2>
+        <h2> {{ user.password }} </h2>
+    </div>
 
-        <label for="email">Email:</label>
-        <input type="text" id="email" email="email" value="{{email}}"><br><br>
-        
-        <label for="password">Password:</label>
-        <input type="text" id="password" password="password" value="{{password}}"><br><br>
+    {% endfor %}
 
-        <input type="submit" value="Update">
-    </form>
 
     <br>
 
