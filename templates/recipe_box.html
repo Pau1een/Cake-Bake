@@ -3,15 +3,23 @@
 
 {% block body %}
 
-<body>
+<div>
 	<h1>RECIPE BOX</h1>
     <h2>Saved recipes below:</h2>
-	<div id="my-recipe-box"></div>
+	<div id="my-recipe-box">
 
-	<script src="saved-recipe.js"></script>
-</body>
-</html>
+    {% for recipe in recipes %}
 
+    <div class="recipe-favorite-results">
+        <h2> {{ recipe.favorite_name }} </h2> 
+        <img src="{{ recipe.favorite_img }}"/>
+        <h3> {{ recipe.favorite_ingredients }} </h3>
+        <h4> {{ recipe.favorite_source }} </h4>
+        <a href="{{ recipe.recipe_link }}" target="_blank">Click here for full recipe!</a>
+    </div>
+    {% endfor %}
+    
+    </div>
 <div class="container">
     <div class="row">
         <div class="col d-flex justify-content-center">

@@ -1,6 +1,6 @@
 """CRUD operations."""
 
-from model import db, User, Recipe, Review, connect_to_db
+from model import db, User, Recipe, Review, Favorite_recipe, connect_to_db
 
 
 def create_user(fname, lname, email, password):
@@ -12,9 +12,6 @@ def create_user(fname, lname, email, password):
         email=email,
         password=password,
         )
-
-    db.session.add(new_user)
-    db.session.commit()
 
     return new_user
 
@@ -47,12 +44,18 @@ def get_recipe_by_name(recipe_name):
     return Recipe.query.filter_by(recipe_name = recipe_name).first()
 
 
-# def save_as_favorite(user_id, venue_id, notes):
-#     """Save and return a favorite."""
+def save_as_favorite(user_id, favorite_name, favorite_img, favorite_ingredients, favorite_source, recipe_link):
+    """Save and return a favorite."""
 
-#     favorite = Favorite(user_id=user_id, venue_id=venue_id, notes=notes)
+    favorite_recipe = Favorite_recipe(user_id=user_id, favorite_name=favorite_name, favorite_img=favorite_img, favorite_ingredients=favorite_ingredients, favorite_source=favorite_source,recipe_link=recipe_link)
 
-#     return favorite
+    return favorite_recipe
+
+
+def get_favorite_recipes_by_user(user_id):
+    """Return favorite recipe by user id."""
+
+    return Favorite_recipe.query.filter_by(user_id = user_id).all()
 
 
 def get_review_by_recipe_id(recipe_id):

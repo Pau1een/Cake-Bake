@@ -168,31 +168,44 @@ def edamam_search():
 @app.route('/box')
 def view_saved_recipes():
     """Show saved recipes"""
+    user_id = session.get("user_id")
+    display = crud.get_favorite_recipes_by_user(user_id)
 
-    return render_template('recipe_box.html')
+    return render_template('recipe_box.html', recipes=display)
 
 
 @app.route("/save_recipe", methods=["POST"])
 def save_recipes():
     """Save a recipe to recipe box"""
 
-    recipe_box = []
+    favorite_name = request.json["favorite_name"]
+    favorite_img = request.json["favorite_img"]
+    favorite_ingredients = request.json["favorite_ingredients"]
+    favorite_source = request.json["favorite_source"]
+    recipe_link = request.json["recipe_link"]
+    user_id = session.get('user_id')
 
-    label = request.form.get("label")
-    source = request.form.get("source")
-    image = request.form.get("image")
-    url = request.form.get("url")
+    favorite_recipe = crud.save_as_favorite(user_id, favorite_name, favorite_img, favorite_ingredients, favorite_source, recipe_link)
+    db.session.add(favorite_recipe)
+    db.session.commit()
 
-    saved_recipe = {
-        "name": label,
-        "source": source,
-        "image": image,
-        "url": url,
-    }
+    # recipe_box = []
 
-    recipe_box.append(saved_recipe)
+    # label = request.form.get("label")
+    # source = request.form.get("source")
+    # image = request.form.get("image")
+    # url = request.form.get("url")
 
-    return jsonify(saved_recipe)
+    # saved_recipe = {
+    #     "name": label,
+    #     "source": source,
+    #     "image": image,
+    #     "url": url,
+    # }
+
+    # recipe_box.append(saved_recipe)
+
+    return "added to favorite"
 
 
 

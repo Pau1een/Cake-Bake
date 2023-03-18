@@ -46,19 +46,19 @@ for n in range(10):
 
 
 # Create reviews, store them in list.
-for x in range(10):
-    fname = n
-    lname = n
-    email = f"user{n}@test.com"  
-    password = "test"
-    recipe_name = x
-    review_user = x
-    created_at = datetime.strptime(rcp["date_baked"], "%Y-%m-%d")
-    score = randint(1, 5)  
+# for x in range(10):
+#     fname = n
+#     lname = n
+#     email = f"user{n}@test.com"  
+#     password = "test"
+#     recipe_name = x
+#     review_user = x
+#     created_at = datetime.strptime(rcp["date_baked"], "%Y-%m-%d")
+#     score = randint(1, 5)  
 
-    new_review = crud.create_review(recipe_name, review_user, date_baked, score)
+#     new_review = crud.create_review(recipe_name, review_user, date_baked, score)
 
-    print(new_review)
+#     print(new_review)
 
 
     # for _ in range(10):

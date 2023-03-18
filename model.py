@@ -18,6 +18,7 @@ class User(db.Model):
     address = db.Column(db.String, nullable=True)
 
     reviews = db.relationship("Review", back_populates="users")
+    favorites_recipes = db.relationship("Favorite_recipe", back_populates="user")
 
     def __repr__(self):
         return f"<User user_id={self.user_id} fname={self.fname} email={self.email}>"
@@ -39,6 +40,23 @@ class Recipe(db.Model):
 
     def __repr__(self):
         return f"<Recipe recipe_id={self.recipe_id} recipe_name={self.recipe_name} recipe_text={self.recipe_text} date_baked={self.date_baked} reviews={self.reviews} ingredients={self.ingredients}>"
+
+class Favorite_recipe(db.Model):
+
+    __tablename__ = "favorite_recipes"
+
+    favorite_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"), nullable=True)
+    favorite_name = db.Column(db.String)
+    favorite_img = db.Column(db.String)
+    favorite_ingredients = db.Column(db.String)
+    favorite_source = db.Column(db.String)
+    recipe_link = db.Column(db.String)
+
+    user = db.relationship("User", back_populates="favorites_recipes")
+
+    def __repr__(self):
+        return f"<Favorite recipe id={self.favorite_id} by user_id={self.user_id} >"
 
 
 class Review(db.Model):
