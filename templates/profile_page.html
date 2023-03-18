@@ -2,19 +2,11 @@
 
 {% block title %}Baker Profile Page{% endblock %}
 
-{% block head %}
-    <style>
-    body {
-        margin-left: 120px;
-        margin-top: 1in;
-    }
-
-    </style>
-
-{% endblock %}
-
 {% block body %}
 
+    <h1>Profile Page</h1>
+    <h2>Update your information below:</h2>
+    <div id="my-profile">
 
     <form method="post" action="{{ url_for('update_profile') }}">
         <label for="fname">First Name:</label>
