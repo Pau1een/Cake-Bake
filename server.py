@@ -95,18 +95,6 @@ def show_user_homepage():
     return render_template('user_homepage.html')
 
 
-@app.route('/profile')
-def show_profile_page():
-    """Show user profile page"""
-    user_fname = session.get('user_fname')
-    user_lname = session.get('user_lname')
-    user_email = session.get('user_email')
-    user_password = session.get('user_password')
-    user = crud.get_user_by_email(user_email)
-
-    return render_template('profile_page.html')
-
-
 @app.route('/form')
 def show_form():
     """Show recipe search form"""
@@ -138,7 +126,7 @@ def edamam_search():
     # response = requests.get('https://api.edamam.com/api/recipes/v2?type=public&q=%22cake%22%2C%20keyword&app_id=9f63074f&app_key=9d021611986e18cf28f394015533320c&field=uri&field=label&field=image&field=source&field=url&field=ingredientLines')
     response = requests.get(url, params=payload)
     data = response.json()
-    # print(data)
+
     if excluded:
         payload['excluded'] = excluded
 
@@ -171,11 +159,10 @@ def save_recipes():
     favorite_ingredients = request.json["favorite_ingredients"]
     favorite_source = request.json["favorite_source"]
     recipe_link = request.json["recipe_link"]
-    review = review
     user_id = session.get('user_id')
 
     existing_recipe = crud.get_favorite_recipes_by_link(recipe_link, user_id)
-    print(existing_recipe)
+    
     if existing_recipe:
         return "Recipe already saved"
 
@@ -187,70 +174,16 @@ def save_recipes():
     return "Added to your recipe box!"
 
 
-@app.route('/save_review', methods=['POST'])
-def save_review():
-    review = request.form.get("review")
-    review = crud.save_review(review)
+# @app.route('/save_review', methods=['POST'])
+# def save_review():
+#     review = request.form.get("review")
+#     review = crud.save_review(review)
 
-    db.session.add()
-    db.session.commit()
-    flash("Review/notes sucessfully saved")
-
-    return "Saved"
-
-
-
-
-# @app.route('/update_profile', methods=['POST'])
-# def update_profiles():
-#     fname = request.json["fname"]
-#     lname = request.json["lname"]
-#     email = request.json["email"]
-#     password = request.json["password"]
-    
-#     if not email or not password:
-#         return jsonify({'error': 'Name and email are required'})
-
-#     user = user.query.first()
-#     user.fname = fname
-#     user.lname = lname
-#     user.email = email
-#     user.password = password
-    
-#     updated_profile = crud.update_user_profile(fname, lname, email, password)
-#     db.session.add(updated_profile)
+#     db.session.add()
 #     db.session.commit()
+#     flash("Review/notes sucessfully saved")
 
-#     return "your profile is now updated"
-
-
-# @app.route('/reviews')
-# def search_reviews_by_recipe_name():
-#     """Search for a review by recipe name"""
-
-#     reviews = crud.get_review_by_recipe_name()
-
-#     return render_template('reviews_recipe_name.html', reviews=reviews)
-
-
-# @app.route("/recipe_reviews", methods=["POST"])
-# def create_review(recipe):
-#     """Create a new review by recipe name."""
-
-#     cake_review = request.form.get("review")
-
-#     if  not cake_review:
-#         flash("Wait!  Did you forget to write your review?")
-#     else:
-#         cake_recipe = crud.get_recipe_by_name(recipe)
-
-#         cake_review = crud.create_review(recipe)
-#         db.session.add(cake_review)
-#         db.session.commit()
-
-#         # flash(f"You reviewed this recipe {score} out of 5.")
-
-#     return redirect(f"/recipes/{recipe}")
+#     return "Saved"
 
 
 if __name__ == "__main__":
