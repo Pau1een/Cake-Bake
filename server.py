@@ -3,6 +3,7 @@ from model import connect_to_db, db
 import crud
 import os
 import requests
+import random
 from pprint import pprint
 from pprint import pformat
 import json
@@ -212,6 +213,13 @@ def save_review():
 #     flash("Review/notes sucessfully saved")
 
 #     return "Saved"
+
+
+@app.route('/facts')
+def cake_facts():
+    """Return a single fact as a text string """
+
+    return random.choice('CAKEFACTS.json')
 
 
 

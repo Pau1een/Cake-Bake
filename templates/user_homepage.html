@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Cake Bake {% endblock %}
+{% block title %}User Homepage {% endblock %}
 
 {% block body %}
     
@@ -20,5 +20,13 @@
         <a class="btn btn-default" href="/logout">
             Click here to logout
     </form>
+    <br>
 
-{% endblock %}
+    </form>
+    <div class="container"></div>
+        <button id="get-fact-button" class="btn btn-primary mt-2">Get A Cake Fact</button>
+        <div id="facts-text"></div>
+        <script src="/static/random.js"></script>
+    </form>
+
+    {% endblock %}
