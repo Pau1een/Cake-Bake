@@ -38,6 +38,19 @@ def save_as_favorite(user_id, favorite_name, favorite_img, favorite_ingredients,
     return favorite_recipe
 
 
+def remove_favorite(user_id, favorite_name, favorite_img, favorite_ingredients, favorite_source, recipe_link):
+    """Remove a favorite."""
+
+    favorite = Favorite_recipe(user_id=user_id, favorite_name=favorite_name, favorite_img=favorite_img, favorite_ingredients=favorite_ingredients, favorite_source=favorite_source, recipe_link=recipe_link)
+
+    if favorite:
+        db.session.delete(favorite)
+        db.session.commit()
+        return "removed"
+    else:
+        return "not found"
+
+
 def get_favorite_recipes_by_user(user_id):
     """Return favorite recipe by user id."""
 
@@ -50,15 +63,24 @@ def get_favorite_recipes_by_link(recipe_link, user_id):
     return Favorite_recipe.query.filter_by(recipe_link = recipe_link, user_id = user_id).first()
 
 
-def save_review(review):
+def save_review(updated_review, user_id, recipe_link):
     """ Save a review. """
+    """query Favorite recipe table to find the saved recipe they want to leave a review on
+    once you have a query that returns that unqiue item
 
-    review = Favorite_recipe.query.get(review)
+    favorite = Favorite_revipe.query.etc
+    favorite.review = review
+    
+    """
 
-    db.session.add(review)
+    # updated_review = Favorite_recipe(review)
+    updated_review = Favorite_recipe.query.filter(Favorite_recipe.user_id==user_id & Favorite_recipe.recipe_link==recipe_link).all()
+    print(updated_review)
+    updated_review.review = updated_review
+    db.session.add(updated_review)
     db.session.commit()
 
-    return review
+    return updated_review
 
 
 

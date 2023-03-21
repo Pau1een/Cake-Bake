@@ -26,9 +26,9 @@
     <h4> {{ recipe['recipe']['source'] }} </h4>
     <a href="{{ recipe['recipe']['url'] }}" target="_blank">Click here for full recipe!</a>
 
-        <p>
-            <button onclick="saveToFavorite({{recipe}})">Save to Recipe Box</button>
-        </p>
+    <p>
+        <button onclick="saveToFavorite({{recipe}})">Save to Recipe Box</button>
+    </p>
 
     {% endfor %}
     <br>
@@ -52,5 +52,6 @@
 
 
     <script src="/static/js/saved-recipe.js"></script>
+    <script src="/static/js/delete_saved_recipe.js"></script>
 
 {% endblock %}
