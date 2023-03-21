@@ -19,24 +19,23 @@
         <br>
         <br>
         <br>
+
         <form action="/save_review" method="POST">
-            <label for="review">Leave a review or notes:</label><br>
-            <textarea id="review" name="review" rows="4" cols="50"></textarea><br>
+            <label for="reviews">Leave a review or notes:</label><br>
+            <textarea id="reviews" name="reviews" rows="4" cols="50"></textarea><br>
             <input type="submit" id="saveButton" value="Save review/notes" class="btn btn-primary"> 
         </form>
     <br>
     <br>
     <div>
-        <button onclick="removeFromFavorite({{recipes}})">Remove recipe from your recipe box</button>
+        <button onclick="removeFromFavorite({{recipe}})">Remove recipe from your recipe box</button>
     </div>
     </div>
     {% endfor %}
-    
-    
-    </div>
-<br>
-<br>
-<br>
+
+    <br>
+    <br>
+    <br>
 <div class="container">
     <div class="row">
         <div class="col d-flex justify-content-center">

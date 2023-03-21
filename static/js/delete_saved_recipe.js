@@ -1,13 +1,13 @@
 'use strict';
 
 
-const removeFavoriteButton = document.querySelector('.remove-favorite');
+// const removeFavoriteButton = document.querySelector('.remove-favorite');
 
-removeFavoriteButton.addEventListener('click', () => {
-    const recipeLink = 'Favorite_recipe.recipe_link'; 
-    const userId = 'Favorite_recipe.user_id'; 
-    removeFromFavorite(recipeLink, userId);
-    });
+// removeFavoriteButton.addEventListener('click', () => {
+//     const recipeLink = 'Favorite_recipe.recipe_link'; 
+//     const userId = 'Favorite_recipe.user_id'; 
+//     removeFromFavorite(recipeLink, userId);
+//     });
 
 function removeFromFavorite(recipe_link, user_id) {
     const input = {
