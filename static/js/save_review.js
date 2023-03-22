@@ -1,11 +1,4 @@
 'use strict';
-console.log("save review file")
-// const saveButton = document.querySelector("#saveButton").addEventListener('submit', (evt) => {
-//     evt.preventDefault();
-
-// const reviewText = document.querySelector('#reviews').value;
-//     saveReview(reviewText);
-// })
 
 const saveReview = (recipe_link) => {
     console.log("saving review")
@@ -23,7 +16,29 @@ const saveReview = (recipe_link) => {
         },
     })
     .then((response) => response.text())
-    .then((data) => console.log(data))
+    .then((data) => alert(data))
 
 }
 
+
+function removeFromFavorite(recipe_link) {
+    console.log(recipe_link)
+    const removed_recipe = {
+    recipe_link: recipe_link,
+    }
+    
+    fetch('/remove_saved_recipe', {
+    method: 'POST',
+    body: JSON.stringify(removed_recipe),
+    headers: {'Content-Type': 'application/json'
+        },
+    })
+    .then((response) => response.json())
+    .then((data) => {
+    if (data.success) {
+        alert('Sucessfully removed recipe!');  
+    } 
+    // console.log(data)
+    
+    })
+}

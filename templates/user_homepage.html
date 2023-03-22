@@ -3,30 +3,31 @@
 
 {% block body %}
     
-    <h2>Welcome to your Baker page! </h2>
+    <h2>Welcome to your Baker Homepage! </h2>
     
     
-    <form action="/search_for_recipe" method="POST">
-        <a class="btn btn-default" href="/form">
-            Click here to search for a recipe
-    </form>
-    <br>
-    <form action="/go_to_recipebox" method="POST">
-        <a class="btn btn-default" href="/box">
-            Click here to view your Recipe Box
-    </form>
-    <br>
-    <form action="/logout" method="POST">
-        <a class="btn btn-default" href="/logout">
-            Click here to logout
-    </form>
+
+    <a class="btn btn-default" href="/form">
+            Click here to search for a recipe </a>
+
     <br>
 
-    </form>
-    <div class="container"></div>
-        <button id="get-fact-button" class="btn btn-primary mt-2">Get A Cake Fact</button>
-        <div id="facts-text"></div>
-        <script src="/static/random.js"></script>
-    </form>
+    <a class="btn btn-default" href="/box">
+            Click here to view your Recipe Box </a>
+
+    <br>
+
+    <a class="btn btn-default" href="/logout">
+            Click here to logout </a>
+
+    <br>
+
+
+        <h3>Cake Facts</h3>
+        <button onclick="displayFact()" id="get-fact-button" class="btn btn-primary mt-2">Get A Cake Fact</button>
+        <div class="container", id="facts-text"></div>
+
+
+<script src="../static/js/random.js"></script>
 
     {% endblock %}

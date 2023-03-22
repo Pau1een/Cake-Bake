@@ -1,11 +1,19 @@
-function replaceFact(results) {
-    document.querySelector('#facts-text').innerHTML = results;
-    }
-    
-    function showFact(evt) {
-        fetch('/facts')
+'use strict';
+console.log("connected file")
+
+    const displayFact = () => {
+        const factContainer = document.querySelector('#facts-text');
+        console.log("connected fact")
+        
+        fetch('/facts', {
+            method: "GET",
+            headers: {'Content-Type': 'application/json'
+            },
+        })
         .then((response) => response.text())
-        .then(replaceFact);
+        .then((data) => factContainer.innerHTML=data)
+    
+        // document.querySelector('#get-fact-button').addEventListener('click', showFact);
     }
     
-    document.querySelector('#get-fact-button').addEventListener('click', showFact);
+    

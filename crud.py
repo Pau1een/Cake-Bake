@@ -38,19 +38,6 @@ def save_as_favorite(user_id, favorite_name, favorite_img, favorite_ingredients,
     return favorite_recipe
 
 
-def remove_favorite(user_id, recipe_link):
-    """Remove a favorite."""
-
-    favorite = Favorite_recipe(user_id=user_id, recipe_link=recipe_link)
-
-    if favorite:
-        db.session.delete(favorite)
-        db.session.commit()
-        return "removed"
-    else:
-        return "not found"
-
-
 def get_favorite_recipes_by_user(user_id):
     """Return favorite recipe by user id."""
 

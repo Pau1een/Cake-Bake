@@ -179,12 +179,15 @@ def save_recipes():
 def remove_a_recipe():
     """Remove a saved recipe from recipe box."""
 
-    recipe_link = session.get('recipe_link')
+    recipe_link = request.json.get('recipe_link')
     user_id = session.get('user_id')
-    removed_recipe = crud.remove_favorite(user_id, recipe_link)
+    print(recipe_link)
+    print(user_id)
+    removed_recipe = crud.get_favorite_recipes_by_link(recipe_link, user_id)
+    print(removed_recipe)
     db.session.delete(removed_recipe)
     db.session.commit()
-
+    # return "recipe removed"
     return jsonify({'success': True, 'message': 'Removed from your recipe box!'})
 
 
@@ -204,11 +207,15 @@ def save_review():
     return "Saved"
 
 
-@app.route('/facts')
+@app.route('/facts', methods=['GET'])
 def cake_facts():
     """Return a single fact as a text string """
+    with open("data/CAKEFACTS.json") as f:
+        facts = json.loads(f.read())
 
-    return random.choice('CAKEFACTS.json')
+    a_fact = random.choice(facts["cake_facts"])
+    print(a_fact)
+    return a_fact
 
 
 
