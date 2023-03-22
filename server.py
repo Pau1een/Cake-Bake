@@ -174,28 +174,30 @@ def save_recipes():
 
     return "Added to your recipe box!"
 
+
 @app.route('/remove_saved_recipe', methods=['POST'])
 def remove_a_recipe():
     """Remove a saved recipe from recipe box."""
 
-    recipe_link = request.json["recipe_link"]
-    print(recipe_link)
+    recipe_link = session.get('recipe_link')
     user_id = session.get('user_id')
-    print(user_id)
     removed_recipe = crud.remove_favorite(user_id, recipe_link)
-    print(removed_recipe)
     db.session.delete(removed_recipe)
     db.session.commit()
 
     return jsonify({'success': True, 'message': 'Removed from your recipe box!'})
 
 
-
 @app.route('/save_review', methods=['POST'])
 def save_review():
     review = request.json.get("review")
     recipe_link = request.json.get("recipe_link")
-    updated_review = crud.save_review(session['review'], session['user_id'], session['recipe_link'])
+    print(review)
+    print(recipe_link)
+    user_id = session.get('user_id')
+    updated_recipe = crud.get_favorite_recipes_by_link(recipe_link, user_id)
+    updated_recipe.review = review
+    db.session.commit()
 
     flash("Review/notes sucessfully saved")
 

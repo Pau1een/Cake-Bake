@@ -1,22 +1,25 @@
-
 'use strict';
+console.log("save review file")
+// const saveButton = document.querySelector("#saveButton").addEventListener('submit', (evt) => {
+//     evt.preventDefault();
 
-const saveButton = document.querySelector("#saveButton").addEventListener('submit', (evt) => {
-    evt.preventDefault();
+// const reviewText = document.querySelector('#reviews').value;
+//     saveReview(reviewText);
+// })
 
-const reviewText = document.querySelector('#reviews').value;
-    saveReview(reviewText);
-})
-
-const saveReview = (review) => {
+const saveReview = (recipe_link) => {
+    console.log("saving review")
+    const reviewText = document.getElementById(recipe_link).value;
+    console.log(recipe_link)
+    console.log(reviewText)
     const body = {
-        reviews: review,
+        review: reviewText, 
+        recipe_link: recipe_link
     }
     fetch('/save_review', {
         method: "POST",
         body: JSON.stringify(body),
-        recipe_link: JSON.stringify(body),
-        headers: {'Conten-Type': 'application/json'
+        headers: {'Content-Type': 'application/json'
         },
     })
     .then((response) => response.text())

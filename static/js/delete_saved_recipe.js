@@ -10,13 +10,16 @@
 //     });
 
 function removeFromFavorite(recipe_link, user_id) {
-    const input = {
+    const removed_recipe = {
     recipe_link: recipe_link,
     user_id: user_id,
     }
+    console.log(recipe_link);
+    console.log(user_id);
+    
     fetch('/remove_saved_recipe', {
     method: 'POST',
-    body: JSON.stringify(input)
+    body: JSON.stringify(removed_recipe)
     })
     .then((response) => response.json())
     .then((data) => {
@@ -24,10 +27,11 @@ function removeFromFavorite(recipe_link, user_id) {
         alert('Sucessfully removed recipe!');  
     } else {
         alert('Error removing recipe.');
+    console.log();
     }
     })
-    .catch(function(error) {
-    console.error('Error from removing recipe:', error);
-    alert('Error removing recipe.');
-    });
+    // .catch(function(error) {
+    // console.error('Error from removing recipe:', error);
+    // alert('Error removing recipe.');
+    // });
 }

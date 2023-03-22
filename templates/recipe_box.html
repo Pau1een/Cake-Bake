@@ -19,16 +19,17 @@
         <br>
         <br>
         <br>
-
-        <form action="/save_review" method="POST">
             <label for="reviews">Leave a review or notes:</label><br>
-            <textarea id="reviews" name="reviews" rows="4" cols="50"></textarea><br>
-            <input type="submit" id="saveButton" value="Save review/notes" class="btn btn-primary"> 
-        </form>
-    <br>
-    <br>
+            {% if recipe.review %}
+            <textarea id="{{ recipe.recipe_link }}" name="reviews" rows="4" cols="50" >{{ recipe.review }}</textarea><br>
+            {% else %}
+            <textarea id="{{ recipe.recipe_link }}" name="reviews" rows="4" cols="50" ></textarea><br>
+            {% endif %}
+            <!-- <input type="submit" id="saveButton" value="Save review/notes" class="btn btn-primary">  -->
+            <button onclick="saveReview('{{recipe.recipe_link}}')">Save</button>
+    
     <div>
-        <button onclick="removeFromFavorite({{recipe}})">Remove recipe from your recipe box</button>
+        <!-- <button onclick="removeFromFavorite ({{recipe}})">Remove recipe from your recipe box</button> -->
     </div>
     </div>
     {% endfor %}
@@ -60,4 +61,5 @@
         </a>
 </div>
 
+<script src="../static/js/save_review.js"></script>
 {% endblock %}
