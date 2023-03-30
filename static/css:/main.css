@@ -18,7 +18,7 @@ h3 {
 
 .nav-transparent {
     background: linear-gradient(rgba(0, 0, 0, 0.4), transparent);
-    font-size: 3.2em;
+    font-size: 2.5em;
     z-index: 100;
 }
 
@@ -34,7 +34,7 @@ h3 {
 
 .nav-transparent .navbar-brand:hover,
 .nav-transparent .nav-link:hover {
-    color: #8c1d9b;
+    color: #b06aba;
 }
 
 .homepage > section.container-fluid,
