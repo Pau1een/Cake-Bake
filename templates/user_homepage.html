@@ -1,26 +1,28 @@
 {% extends 'base.html' %}
 {% block title %}User Homepage {% endblock %}
+{% block head %}
+        <link rel="stylesheet"
+        href="/static/css/userHomepage.css">
+{% endblock %}
 
 {% block body %}
-    
-    <h2>Welcome to your Baker Homepage! </h2>
-    
-    
 
-    <a class="btn btn-default" href="/form">
-            Click here to search for a recipe </a>
+        <h2>Welcome to your Baker Homepage! </h2>
 
-    <br>
+        <a class="btn btn-default" href="/form">
+        Click here to search for a recipe </a>
 
-    <a class="btn btn-default" href="/box">
-            Click here to view your Recipe Box </a>
+        <br>
 
-    <br>
+        <a class="btn btn-default" href="/box">
+        Click here to view your Recipe Box </a>
 
-    <a class="btn btn-default" href="/logout">
-            Click here to logout </a>
+        <br>
 
-    <br>
+        <a class="btn btn-default" href="/logout">
+                Click here to logout </a>
+
+        <br>
 
 
         <h3>Cake Facts</h3>
@@ -30,4 +32,4 @@
 
 <script src="../static/js/random.js"></script>
 
-    {% endblock %}
+{% endblock %}

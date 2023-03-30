@@ -4,15 +4,25 @@
 
 {% block body %}
     <h1> Pick your cake below </h1>
-    <h3> Search for another cake:</h3>
+
     <div class="container">
         <div class="row">
             <div class="col d-flex justify-content-center">
             <a href="/form" class="lead backlink">
-                Search again!
+                Click here to search again
             </a>
-            </div>
         </div>
+    </div>
+
+    <div class="container">
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                <a href="/user_homepage" class="lead backlink">
+                    Click here to return to your Homepage
+                </a>
+                </div>
+    </div>
+</div>
         <br>
         <br>
     
@@ -32,23 +42,7 @@
 
     {% endfor %}
     <br>
-    <div class="container">
-        <div class="row">
-            <div class="col d-flex justify-content-center">
-            <a href="/form" class="lead backlink">
-                Click here to search again
-            </a>
-        </div>
-    </div>
 
-    <div class="container">
-            <div class="row">
-                <div class="col d-flex justify-content-center">
-                <a href="/user_homepage" class="lead backlink">
-                    Click here to return to your Homepage
-                </a>
-                </div>
-    </div>
 
 
     <script src="/static/js/saved-recipe.js"></script>

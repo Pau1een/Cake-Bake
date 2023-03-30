@@ -1,0 +1,50 @@
+h3 {
+    margin-top: 3em;
+    border-top: solid 1px #ccc;
+    padding-top: 0.2em;
+}
+    
+#facts-text {
+    border: solid 1px blue;
+    padding: 1em;
+    margin: 1em;
+}
+
+.homepage nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav-transparent {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), transparent);
+    font-size: 3.2em;
+    z-index: 100;
+}
+
+.nav-transparent .nav-link,
+.nav-transparent .navbar-brand,
+.nav-transparent p {
+    color: white;
+}
+
+.nav-transparent .navbar-brand {
+    font-weight: bold;
+}
+
+.nav-transparent .navbar-brand:hover,
+.nav-transparent .nav-link:hover {
+    color: #8c1d9b;
+}
+
+.homepage > section.container-fluid,
+.homepage > section.container {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 56px;
+}
+
+.homepage {
+background: no-repeat center/cover url('/static/img:/homepage.jpg');
+background-size: cover;
+} 
