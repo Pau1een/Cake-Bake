@@ -1,0 +1,52 @@
+.homepage h1 {
+    position: fixed;
+    top: 280px;
+    font-size: 5.0em;
+    color: whitesmoke;
+    right: 7rem; 
+}
+
+.homepage nav {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.nav-transparent {
+    background: transparent;
+    font-size: 2.5em;
+    z-index: 100;
+}
+
+.nav-transparent .nav-link,
+.nav-transparent .navbar-brand,
+.nav-transparent p {
+    color: white;
+}
+
+.nav-transparent .navbar-brand {
+    font-weight: bold;
+}
+
+.nav-transparent .navbar-brand:hover,
+.nav-transparent .nav-link:hover {
+    color: #b60e1f
+}
+
+.homepage > section.container-fluid,
+.homepage > section.container {
+    width: 100vw;
+    height: 100vh;
+    /* padding-top: 56px; */
+}
+
+.homepage {
+    background: no-repeat center/cover url('/static/img:/homepage.avif');
+    /* background-size: contain; */
+    /* background-size: auto; */
+    /* background-size: center/cover; */
+} 

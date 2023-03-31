@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
-{% block title %}Cake Bake {% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block body %}
-    <h1>Log in here</h1>
+<div class="container-fluid">
+    <link href="/static/css:/login.css" rel="stylesheet">
+
+    <video autoplay loop muted id="video">
+        <source src="/static/img:/sprinkle.mp4" type="video/mp4">
+    </video>
+
+    <h1>Log In</h1>
 
     <ul>
         {% for message in get_flashed_messages() %}
@@ -11,24 +18,27 @@
     </ul>
     
     <form action="/login" method="POST">
-        <p>
-            Email <input type="text" name="email">
+        <p style="text-align: center;">
+            <label>Email</label>
+            <input type="text" name="email" style="margin-left: 2em;">
         </p>
-        <p>
-            Password <input type="password" name="password">
+        <p style="text-align: center;">
+            <label>Password</label>
+            <input type="password" name="password">
         </p>
-        <p>
-            <input type="submit">
-        </p>
+        <div style="text-align:center">
+            <button class="submit-button" role="button"><span class="text">Submit</span><span>Let's Bake</span></button>
+            
+        </div>
     </form>
-
+    <br>
     <div class="container">
         <div class="row">
             <div class="col d-flex justify-content-center">
             <a href="/" class="lead backlink">
-                Click here to return to the Homepage
+            <button class="returnHomepage" role="button">Return to Homepage</button>
             </a>
             </div>
     </div>  
-
+</div> 
 {% endblock %}
