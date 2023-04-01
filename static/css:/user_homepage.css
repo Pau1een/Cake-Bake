@@ -3,7 +3,7 @@
     width: 100vw;
     height: 100vh;
     padding-top: 56px;
-    color: rgba(186, 95, 169, 0.606)
+    color: rgba(186, 95, 169, 0.606) */
 }
 
 .container {
@@ -15,15 +15,19 @@
 
 .btn-default {
     margin-left: 20px;  
-    color:rgba(163, 129, 94, 0.835);
+    color:rgba(209, 93, 218, 0.835);
     font-size: large;
+}
+
+.btn-default:hover {
+    color: rgb(18, 168, 232);
 }
 
 #facts-text {
     margin: 1em;
     margin-top: 0px;
-    color: rgb(105, 53, 105);
-    max-width: 18vw;
+    color: rgba(91, 79, 74, 0.932);
+    max-width: 20vw;
 }
 
 .container-fluid {
@@ -33,12 +37,13 @@
 h1 {
     margin-left: 15px;
     margin-top: -20px;
+    color: rgb(18, 168, 232)
 }
 
 h2 {
     margin-left: 5px;
     margin-top: -100px;
-    color: rgba(186, 95, 169, 0.806)
+    color: rgb(18, 168, 232)
 }
 
 #get-fact-button {

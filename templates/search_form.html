@@ -13,32 +13,30 @@
     <div class="row">
         <div class="col">
             <h1>Cake Search</h1>
-            <h3>Enter a main ingredient below:</h3>
-
+            <h3>Bake your next cake based on an ingredient or base flavor!</h3>
+            <br>
             <form method="GET" action="/recipes/search">
                 <div class="row">
-                    <label class="form-label above" for="search-keyword">Main ingredient</label>
-                    <small class="form-text text-muted"></small>
+                    <label class="form-label above" for="search-keyword" style="color: rgb(226, 192, 79)">Enter one main ingredient:</label>
+                    <small class="form-text text-muted" style="color: rgb(226, 192, 79)"></small>
                     <input id="search-keyword" class="form-control" type="text" name="keyword">
                 </div>
+                <br>
                 <div class="row">
-                    <label class="form-label above" for="excluded_search_keyword">Optionally, enter one ingredient to exclude:</label>
-                    <small class="form-text text-muted"></small>
+                    <label class="form-label above" for="excluded_search_keyword" style="color: rgb(226, 192, 79);">Optionally, enter one ingredient to exclude:</label>
+                    <small class="form-text text-muted" style="color: rgb(226, 192, 79);"></small>
                     <input id="excluded_search_keyword" class="form-control" type="text" name="excluded-food">
                 </div>
+                <div class="row mt-4 mb-">
+                    <div class="col-3">
+                        <input type="submit" button class="button-81" role="button"></button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-end">
+                        <a href="/user_homepage" id="homeButton" button class="button-81" role="button">Homepage</a>
+                    </div>
+                </div>
             </form>
-
-    <div class="row mt-4">
-        <div class="col-3">
-            <input type="submit" value="Search recipes" class="btn btn-primary">
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col d-flex justify-content-end">
-            <a href="/user_homepage" class="lead backlink">Click here to return to your Homepage</a>
-        </div>
-    </div>
 </div>
-
 {% endblock %}
