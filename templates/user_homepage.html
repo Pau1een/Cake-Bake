@@ -1,31 +1,32 @@
 {% extends 'base.html' %}
-{% block title %}User Homepage {% endblock %}
+{% block title %}Baker Homepage{% endblock %}
 
 {% block body %}
 <link href="/static/css:/user_homepage.css" rel="stylesheet">
-
-        <h2>Welcome to your Baker Homepage! </h2>
+<div class="container-fluid">
+        <h1>Baker Homepage </h1>
 
         <a class="btn btn-default" href="/form">
-        Click here to search for a recipe </a>
+        Search recipes </a>
 
         <br>
 
         <a class="btn btn-default" href="/box">
-        Click here to view your Recipe Box </a>
+        Recipe Box </a>
 
         <br>
 
         <a class="btn btn-default" href="/logout">
-                Click here to logout </a>
+                Logout </a>
 
-        <br>
-
-
-        <h3>Cake Facts</h3>
-        <button onclick="displayFact()" id="get-fact-button" class="btn btn-primary mt-2">Get A Cake Fact</button>
+        <div class="container">
+        <h2>Cake Trivia</h2>
+        <button onclick="displayFact()" id="get-fact-button" class="btn btn-default mt-0">
+                Get a fact
+        </button>
         <div class="container", id="facts-text"></div>
-
+        </div>
+</div>
 
 <script src="../static/js/random.js"></script>
 

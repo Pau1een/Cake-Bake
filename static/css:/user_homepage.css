@@ -1,11 +1,48 @@
-h3 {
-    margin-top: 3em;
-    border-top: solid 1px #ccc;
+
+.container-fluid {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 56px;
+    color: rgba(186, 95, 169, 0.606)
+}
+
+.container {
+    margin-left: 0px; 
+    margin-top: 15em;
+    /* border-top: solid 1px #ccc; */
     padding-top: 0.2em;
 }
-    
+
+.btn-default {
+    margin-left: 20px;  
+    color:rgba(163, 129, 94, 0.835);
+    font-size: large;
+}
+
 #facts-text {
-    border: solid 1px blue;
-    padding: 1em;
     margin: 1em;
+    margin-top: 0px;
+    color: rgb(105, 53, 105);
+    max-width: 18vw;
+}
+
+.container-fluid {
+    background: no-repeat center/cover url('/static/img:/userHomepage.jpg');
+} 
+
+h1 {
+    margin-left: 15px;
+    margin-top: -20px;
+}
+
+h2 {
+    margin-left: 5px;
+    margin-top: -100px;
+    color: rgba(186, 95, 169, 0.806)
+}
+
+#get-fact-button {
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 0px;
 }

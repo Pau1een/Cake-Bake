@@ -1,0 +1,32 @@
+@media (min-width: 768px) {
+    .returnHomepage {
+        padding: 0 40px;
+    }
+    }
+    
+#video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+.container-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+h1, h3 {
+    color: rgb(155, 107, 66);
+    /* padding-left: 10px; */
+}
+
+.lead.backlink {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+}
+

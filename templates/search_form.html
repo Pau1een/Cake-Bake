@@ -1,64 +1,44 @@
 {% extends 'base.html' %}
 
 
-{% block title %} Recipe Search Form {% endblock %}
+{% block title %}Search Form{% endblock %}
 
 {% block body %}
 <link href="/static/css:/search_form.css" rel="stylesheet">
-<div class="container">
+<video autoplay loop muted id="video">
+    <source src="/static/img:/searchForm.mp4" type="video/mp4">
+</video>
+
+<div class="container-right">
     <div class="row">
-    <div class="col">
-        <h2>Cake Search</h2>
-        <h3>Search for a cake recipe by entering a main ingredient below:</h3>
+        <div class="col">
+            <h1>Cake Search</h1>
+            <h3>Enter a main ingredient below:</h3>
 
-        <form method="GET" action="/recipes/search">
-        <div class="row">
-            <label class="form-label above" for="search-keyword">Main ingredient</label> 
-            <small class="form-text text-muted">
-            </small>
+            <form method="GET" action="/recipes/search">
+                <div class="row">
+                    <label class="form-label above" for="search-keyword">Main ingredient</label>
+                    <small class="form-text text-muted"></small>
+                    <input id="search-keyword" class="form-control" type="text" name="keyword">
+                </div>
+                <div class="row">
+                    <label class="form-label above" for="excluded_search_keyword">Optionally, enter one ingredient to exclude:</label>
+                    <small class="form-text text-muted"></small>
+                    <input id="excluded_search_keyword" class="form-control" type="text" name="excluded-food">
+                </div>
+            </form>
 
-            <input
-            id="search-keyword"
-            class="form-control"
-            type="text"
-            name="keyword"
-            > 
-        </div>
-
-        <form method="GET" action="/recipes/search">
-        <div class="row">
-            <label class="form-label above" for="search-keyword">If needed enter one ingredient you need to exclude:</label> 
-            <small class="form-text text-muted">
-            </small>
-
-            <input
-            id="excluded_search_keyword"
-            class="'form-control"
-            type="text"
-            name="excluded-food"
-            > 
-        </div>
-
-        <br>
-
-        </div>
-        <div class="row mt-4">
-            <div class="col-3">
+    <div class="row mt-4">
+        <div class="col-3">
             <input type="submit" value="Search recipes" class="btn btn-primary">
-            </div>
         </div>
-        </form>
     </div>
-    </div>
-</div>
-<br>
-<br>
-<div class="container">
+    
     <div class="row">
-        <div class="col d-flex justify-content-center">
-        <a href="/user_homepage" class="lead backlink">
-            Click here to return to your Homepage
-        </a>
+        <div class="col d-flex justify-content-end">
+            <a href="/user_homepage" class="lead backlink">Click here to return to your Homepage</a>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

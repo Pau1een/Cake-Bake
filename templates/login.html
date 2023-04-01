@@ -6,7 +6,7 @@
     <link href="/static/css:/login.css" rel="stylesheet">
 
     <video autoplay loop muted id="video">
-        <source src="/static/img:/sprinkle.mp4" type="video/mp4">
+        <source src="/static/img:/login.mp4" type="video/mp4">
     </video>
 
     <h1>Log In</h1>
@@ -16,29 +16,35 @@
             <li class="flash">{{ message }}</li>
         {% endfor %}
     </ul>
+
+    <style>
+        .submit-button {
+            margin-left: 50px; 
+        }
+    </style>
     
-    <form action="/login" method="POST">
-        <p style="text-align: center;">
-            <label>Email</label>
-            <input type="text" name="email" style="margin-left: 2em;">
-        </p>
-        <p style="text-align: center;">
-            <label>Password</label>
-            <input type="password" name="password">
-        </p>
-        <div style="text-align:center">
+    <form action="/login" method="POST" style="margin-top: 60px; margin-left: 50px;">
+        <div style="text-align: center;">
+            <label style="color: white; font-weight: bold; font-size: 20px;">Email:</label>
+            <input type="text" name="email" style="display: inline-block; margin-left: 1em; margin-right: 2em; color: rgb(61, 39, 66); font-weight: bold; font-size: 15px;">
+            <label style="color: white; font-weight: bold; font-size: 20px;">Password:</label>
+            <input type="password" name="password" style="display: inline-block; margin-left: 1em; color: rgb(61, 39, 66); font-weight: bold; font-size: 15px;">
             <button class="submit-button" role="button"><span class="text">Submit</span><span>Let's Bake</span></button>
-            
         </div>
     </form>
-    <br>
+
+    
+
+
     <div class="container">
         <div class="row">
-            <div class="col d-flex justify-content-center">
+            <div class="col d-flex justify-content-end"> <!-- changed justify-content-center to justify-content-end -->
             <a href="/" class="lead backlink">
-            <button class="returnHomepage" role="button">Return to Homepage</button>
+                <button class="returnHomepage" role="button" style="margin-left: 10px;">Return to Homepage</button> <!-- added margin-left property -->
             </a>
-            </div>
-    </div>  
+        </div>
+        </div>
+    </div>
+
 </div> 
 {% endblock %}
