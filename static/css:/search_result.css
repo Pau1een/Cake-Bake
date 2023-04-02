@@ -1,0 +1,57 @@
+.results {
+    padding-top: 5px;
+    color: rgb(23, 21, 21);
+}
+
+h5 {
+    /* margin: 1em;
+    margin-top: 0px; */
+    color: rgba(16, 15, 15, 0.932);
+    max-width: 57vw;
+    font-weight:30;
+}
+
+.results nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.nav-transparent {
+    background: transparent;
+    font-size: 2.5em;
+    z-index: 100;
+    padding: 0;
+}
+
+.nav-transparent .nav-link,
+.nav-transparent .navbar-brand,
+.nav-transparent p {
+    color: rgb(18, 16, 16);
+}
+
+.nav-transparent .navbar-brand {
+    font-size: large;
+}
+
+.nav-transparent .navbar-brand:hover,
+.nav-transparent .nav-link:hover {
+    color: #867879
+}
+
+.container-fluid {
+    background: no-repeat center/cover url('/static/img:/boxr.jpg');
+    background-attachment: fixed;
+}
+
+.homepage > section.container-fluid,
+.homepage > section.container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    /* padding-right: 20px; */
+}

@@ -1,12 +1,59 @@
-#video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -1;
+.container-fluid {
+    /* padding-top: 56px; */
+    color: rgb(23, 21, 21);
+    background: no-repeat center/cover url('/static/img:/box.jpg');
+    background-attachment: fixed;
 }
 
-.container {
-    color: rgb(23, 21, 21)
+h1 {
+    margin-right: -250px;
+}
+
+h6 {
+    max-width: 57vw;
+    font-weight:30;
+}
+
+.recipe-favorite-results .recipe-source {
+    display: inline;
+    left: 0;
+}
+
+.recipe-favorite-results a {
+    display: inline;
+    margin-left: 5px; 
+}
+
+.recipeBox nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav-transparent {
+    background: transparent;
+    font-size: 1.2em;
+    z-index: 100;
+}
+
+.nav-transparent .nav-link,
+.nav-transparent .navbar-brand,
+.nav-transparent p {
+color: rgba(75, 70, 65, 0.917);
+}
+
+.nav-transparent .navbar-brand {
+font-weight: bold;
+}
+
+.nav-transparent .navbar-brand:hover,
+.nav-transparent .nav-link:hover {
+color: #d49d57;
+}
+
+.recipeBox > section.container-fluid,
+.recipeBox > section.container {
+width: 100vw;
+height: 100vh;
+padding-top: 56px;
 }

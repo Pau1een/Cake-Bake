@@ -41,12 +41,9 @@
 .homepage > section.container {
     width: 100vw;
     height: 100vh;
-    /* padding-top: 56px; */
+    /* padding-right: 20px; */
 }
 
 .homepage {
     background: no-repeat center/cover url('/static/img:/homepage.avif');
-    /* background-size: contain; */
-    /* background-size: auto; */
-    /* background-size: center/cover; */
 } 
