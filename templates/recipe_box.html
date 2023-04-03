@@ -36,13 +36,7 @@
         <br>
         <br>
         <h6> {{ recipe.favorite_ingredients }} </h6>
-        <h6>{{ recipe.favorite_ingredients }}</h6>
-        <br>
-        <ul>
-            {% for ingredient in recipe['recipe']['ingredientLines'] %}
-            <li>{{ ingredient }}</li>
-            {% endfor %}
-        </ul> 
+
         <br>
             <label for="reviews">Leave a review or notes:</label><br>
             {% if recipe.review %}
@@ -50,7 +44,6 @@
             {% else %}
             <textarea id="{{ recipe.recipe_link }}" name="reviews" rows="4" cols="50" ></textarea><br>
             {% endif %}
-            <!-- <input type="submit" id="saveButton" value="Save review/notes" class="btn btn-primary">  -->
             <button onclick="saveReview('{{recipe.recipe_link}}')">Save</button>
     
     <div>
@@ -77,5 +70,5 @@
 </section> -->
 
 <script src="../static/js/save_review.js"></script>
-
+<script src="/static/js/saved-recipe.js"></script>
 {% endblock %}
