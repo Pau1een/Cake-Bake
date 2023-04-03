@@ -1,6 +1,14 @@
 CAKE BAKE
-App that helps you find a cake recipe based on a main ingredient or flavor that you have in your kitchen.  If you have apples in your pantry, Cake Bake will give you a cake recipes containing apples.
-You can exclude an ingredient in your search.  For example if you are allergic to walnuts, the search results will exclude all recipes that contain walnuts.  
-You will be able to create an accout and log in.  You will also be able to have your own Recipe Box that will contain your saved recipes.  You can leave a review or notes on each saved recipe.  You can delete a recipe from your recipe box if needed.
-From your Baker homepage, there is a random cake fact generator. Bake on!
 
+This niche app is for those who love to bake cakes.  In the mood to bake, but need a recipe for those apricots from the farmers market?  Cake Bake will do the searching for you so you have some choices.  What about your walnut allergy?  Cake Bake will only give you recipes with no walnuts!
+You can save as many recipes to your own personalized recipe box. Add and delete.  Leave notes or a review.  The icing on the app?  Your own trivia button full of cake facts from around the world and ages!
+
+Cake Bake utilizes the following to help you with your cake obession:
+A SQL database with seperate table and class for user information and favorite recipes to query
+Flask server
+Jinja templates using template inheritance across all pages
+A CSS file for each page
+Bootstrap for extra styling
+Several features that use JavaScript to manipulate the DOM
+JavaScript frontend libraries, frameworks, and/or code that you write
+AJAX requests
