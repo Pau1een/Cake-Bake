@@ -2,8 +2,8 @@
 .container-fluid {
     width: 100vw;
     height: 100vh;
-    padding-top: 56px;
-    color: rgba(186, 95, 169, 0.606) */
+    padding-top: 70px;
+    color: rgba(186, 95, 169, 0.606) 
 }
 
 .container {
@@ -50,4 +50,15 @@ h2 {
     margin-left: 5px;
     margin-top: 10px;
     margin-bottom: 0px;
+}
+
+.flash-msg {
+    color: rgb(214, 215, 127);
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 5px;
+    font-size: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }

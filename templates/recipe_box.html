@@ -18,9 +18,6 @@
                 </li>
             </ul>
         </div>
-        <p class="my-auto">
-            Cake Bake
-        </p>
         </div>
     </nav>
 
@@ -39,6 +36,13 @@
         <br>
         <br>
         <h6> {{ recipe.favorite_ingredients }} </h6>
+        <h6>{{ recipe.favorite_ingredients }}</h6>
+        <br>
+        <ul>
+            {% for ingredient in recipe['recipe']['ingredientLines'] %}
+            <li>{{ ingredient }}</li>
+            {% endfor %}
+        </ul> 
         <br>
             <label for="reviews">Leave a review or notes:</label><br>
             {% if recipe.review %}
@@ -60,33 +64,8 @@
     </div>
     {% endfor %}
 
-    <br>
-    <br>
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col d-flex justify-content-center">
-            <a href="/form" class="lead backlink">
-                Click here to search for a cake recipe
-            </a>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col d-flex justify-content-center">
-            <a href="/user_homepage" class="lead backlink">
-                Click here to return to your Homepage
-            </a>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col d-flex justify-content-center">
-            <a href="/logout" class="lead backlink">
-                Click here to logout
-            </a>
 </div>
-<section
+<!-- <section
     class="demo-1 container-fluid d-flex justify-content-center align-items-center"
 >
 <div class="row">
@@ -95,7 +74,7 @@
         </p>
     </div>
 </div>
-</section>
+</section> -->
 
 <script src="../static/js/save_review.js"></script>
 

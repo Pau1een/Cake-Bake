@@ -11,12 +11,6 @@
 
     <h1>Log In</h1>
 
-    <ul>
-        {% for message in get_flashed_messages() %}
-            <li class="flash">{{ message }}</li>
-        {% endfor %}
-    </ul>
-
     <style>
         .submit-button {
             margin-left: 50px; 
@@ -33,18 +27,15 @@
         </div>
     </form>
 
-    
-
-
     <div class="container">
         <div class="row">
             <div class="col d-flex justify-content-end"> <!-- changed justify-content-center to justify-content-end -->
             <a href="/" class="lead backlink">
-                <button class="returnHomepage" role="button" style="margin-left: 10px;">Return to Homepage</button> <!-- added margin-left property -->
+                <button class="homepage-button" role="button"><span class="text2">Homepage</span><span>Let's go!</span></button>
+        </div>
             </a>
         </div>
         </div>
     </div>
-
 </div> 
 {% endblock %}

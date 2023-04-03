@@ -43,12 +43,12 @@ def make_user():
     
     if user:
         flash("An account already exists with that email. Try again.")
-        return render_template('login.html')
+        return render_template('create_account.html')
     else:
         new_user = crud.create_user(fname, lname, email, password)
         db.session.add(new_user)
         db.session.commit()
-        flash("Account created! Success!")
+        flash("Account created!")
 
         return redirect('/login_user')
 
@@ -85,7 +85,7 @@ def logout_user():
     """Log out user."""
     # Remove user from session when user clicks "logout" 
     session.clear()
-    flash("You have logged out.")
+    # flash("You have logged out.")
     return redirect('/')
 
 
@@ -187,7 +187,6 @@ def remove_a_recipe():
     print(removed_recipe)
     db.session.delete(removed_recipe)
     db.session.commit()
-    # return "recipe removed"
     return jsonify({'success': True, 'message': 'Removed from your recipe box!'})
 
 
@@ -202,9 +201,9 @@ def save_review():
     updated_recipe.review = review
     db.session.commit()
 
-    flash("Review/notes sucessfully saved")
+    # flash("Review/notes sucessfully saved")
 
-    return "Saved"
+    # return "Saved"
 
 
 @app.route('/facts', methods=['GET'])

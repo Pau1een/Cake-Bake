@@ -17,6 +17,6 @@ const saveToFavorite = (recipe) => {
         headers: headers
     })
     .then((response) => response.text())
-    .then((data) => alert(data))
-
+    // .then((data) => alert(data))
+        swal("Saved to your Recipe Box!");
 }

@@ -17,5 +17,7 @@ const updateProfile = (user) => {
     })
     .then((response) => response.text())
     .then((data) => console.log(data))
-
+    const usernameElement = document.getElementById('username');
+    usernameElement.textContent = user.user.fname;
 }
+
