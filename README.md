@@ -5,10 +5,17 @@ You can save as many recipes to your own personalized recipe box. Add and delete
 
 Cake Bake utilizes the following to help you with your cake obession:
 A SQL database with seperate table and class for user information and favorite recipes to query
+
 Flask server
+
 Jinja templates using template inheritance across all pages
+
 A CSS file for each page
+
 Bootstrap for extra styling
+
 Several features that use JavaScript to manipulate the DOM
+
 JavaScript frontend libraries, frameworks, and/or code that you write
+
 AJAX requests
