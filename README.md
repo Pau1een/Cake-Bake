@@ -4,6 +4,7 @@ This niche app is for those who love to bake cakes.  In the mood to bake, but ne
 You can save as many recipes to your own personalized recipe box. Add and delete.  Leave notes or a review.  The icing on the app?  Your own trivia button full of cake facts from around the world and ages!
 
 Cake Bake utilizes the following to help you with your cake obession:
+
 A SQL database with seperate table and class for user information and favorite recipes to query
 
 Flask server
