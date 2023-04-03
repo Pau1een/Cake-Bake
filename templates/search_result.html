@@ -7,7 +7,7 @@
     <div class="results">
         <nav class="navbar navbar-expand-md nav-transparent w-100">
             <div class="container-fluid">
-                <a class="navbar-brand" href="">Search results </a>
+                <a class="navbar-brand" >Search results </a>
             <div id="navbar" class="navbar-collapse collapse navbar-expand-lg">
                 <ul class="navbar-nav">
                 <li class="nav-item">
@@ -40,8 +40,8 @@
                 <li>{{ ingredient }}</li>
                 {% endfor %}
             </ul>
-            <p>
-                <button onclick="saveToFavorite({{recipe}})" class="button-57" role="button"><span class="text">Save to Recipe Box</span><span>Let's Bake!</span></button>
+            <p style="text-align: right">
+                <button onclick="saveToFavorite({{recipe}})" class="button-57" role="button" style="margin-left: 150px"><span class="text">Save to Recipe Box</span><span>Great cake!  Let's bake!</span></button>
             </p>
         </div> 
         </div>
