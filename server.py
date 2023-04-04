@@ -75,9 +75,9 @@ def process_login():
         # Log in user by storing the user's email in session
         session["email"] = user.email
         session["user_id"] = user.user_id
-        flash(f"Hello {user.fname}!")
+        # flash(f"Hello {user.fname}!")
 
-        return render_template('user_homepage.html')
+        return render_template('user_homepage.html', username=user.fname)
 
 
 @app.route("/logout")
@@ -93,7 +93,10 @@ def logout_user():
 def show_user_homepage():
     """Show user_homepage form"""
 
-    return render_template('user_homepage.html')
+    user_email = session.get("email")
+    user = crud.get_user_by_email(user_email)
+
+    return render_template('user_homepage.html', username=user.fname)
 
 
 @app.route('/form')

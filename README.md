@@ -14,6 +14,8 @@ CSS
 
 A SQL database with seperate table and class for user information and favorite recipes to query
 
+SQLAlchemy
+
 Flask server
 
 Jinja2  using template inheritance across all pages
@@ -27,3 +29,20 @@ JavaScript frontend libraries/frameworks
 AJAX/JSON
 
 Edaman API
+
+
+Cake Bake 2.0 plans:
+
+Kroger API to search for ingredients near your location with Google Map API
+
+Search function for recipes in Recipe Box
+
+Recipe Box results expansion on page
+
+Multiple timers for your baking
+
+Music while you bake: Link to YouTube for LoFi music videos / Spotify / Apple Music playlists
+
+Rotating Homepage cake images
+
+Your cake personality quiz - If you were a cake, what kind of cake would you be?
