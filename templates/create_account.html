@@ -5,39 +5,35 @@
 
 {% block body %}
     <link href="/static/css:/create_account.css" rel="stylesheet">
-
     <video autoplay loop muted id="bg-video">
         <source src="/static/img:/create_account.mp4" type="video/mp4">
     </video>
-    
     <div class="createAccount">
         <h1 id="welcome">Welcome to Cake Bake</h1>
-
         <h2 id="create">Create your Account</h2>
         <form action="/create_account" method="POST">
             <p>
                 <label for="fname"  class="label2">First Name</label>
                 <input type="text" name="fname" class="input2">
             </p>
-
             <p>
                 <label for="lname" class="label2">Last Name</label>
                 <input type="text" name="lname" class="input2">
             </p>
-
             <p>
                 <label for="email" class="label2">Email</label>
                 <input type="text" name="email" class="input2">
             </p>
-
             <p>
                 <label for="password" class="label2">Password</label>
                 <input type="password" name="password" class="input2">
             </p>
-            <p>
-                <input type="submit" class="label2" style="text-align: center;"/>
-            </p>
         </form>
+        <p class="buttons">
+            <input type="submit" class="button-2-submit" role="button">
+            <br><br>
+            <a href="/" class="btn btn-primary button-2-submit">&nbspHome&nbsp</a>
+        </p>
     </div>
 
 {% endblock %}
