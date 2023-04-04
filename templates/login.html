@@ -4,19 +4,15 @@
 {% block body %}
 <div class="container-fluid">
     <link href="/static/css:/login.css" rel="stylesheet">
-
     <video autoplay loop muted id="video">
         <source src="/static/img:/login.mp4" type="video/mp4">
     </video>
-
     <h1>Log In</h1>
-
     <style>
         .submit-button {
             margin-left: 50px; 
         }
     </style>
-    
     <form action="/login" method="POST" style="margin-top: 60px; margin-left: 50px;">
         <div style="text-align: center;">
             <label style="color: white; font-weight: bold; font-size: 20px;">Email:</label>
@@ -26,7 +22,6 @@
             <button class="submit-button" role="button"><span class="text">Submit</span><span>Let's Bake</span></button>
         </div>
     </form>
-
     <div class="container">
         <div class="row">
             <div class="col d-flex justify-content-end"> <!-- changed justify-content-center to justify-content-end -->

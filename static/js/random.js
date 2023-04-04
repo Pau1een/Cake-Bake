@@ -12,8 +12,6 @@ console.log("connected file")
         })
         .then((response) => response.text())
         .then((data) => factContainer.innerHTML=data)
-    
-        // document.querySelector('#get-fact-button').addEventListener('click', showFact);
     }
     
     

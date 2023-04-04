@@ -20,7 +20,6 @@ const saveReview = (recipe_link) => {
 
 }
 
-
 function removeFromFavorite(recipe_link) {
     console.log(recipe_link)
     const removed_recipe = {
@@ -39,7 +38,5 @@ function removeFromFavorite(recipe_link) {
         // alert('Sucessfully removed recipe!');  
         swal("Sucessfully removed recipe!");
     } 
-    // console.log(data)
-    
     })
 }

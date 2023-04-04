@@ -41,10 +41,8 @@
 .homepage > section.container {
     width: 100vw;
     height: 100vh;
-    /* padding-right: 20px; */
 }
 
 .homepage {
     background: no-repeat center/cover url('/static/img:/homepage.avif');
-    /* background: no-repeat center/cover url('/static/img:/purplecakeMobile.jpg'); */
 } 
