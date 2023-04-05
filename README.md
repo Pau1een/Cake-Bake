@@ -46,3 +46,7 @@ Music while you bake: Link to YouTube for LoFi music videos / Spotify / Apple Mu
 Rotating Homepage cake images
 
 Your cake personality quiz - If you were a cake, what kind of cake would you be?
+
+![Search Page](static/img/Search.jpeg)
+![Recipe Box Page](static/img/Box.jpeg)
+![Home Page](static/img/homepage.jpeg)
