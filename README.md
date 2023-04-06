@@ -4,36 +4,39 @@ This niche fullstack web application is for those who love to bake cakes.  In th
 You can save as many recipes to your own personalized recipe box. Add and delete.  Leave notes or a review.  The icing on the app?  Your own trivia button full of cake facts from around the world and ages!
 
 
-Cake Bake utilizes the following tools to help you with your cake obession:
-
-Python
-
-HTML
-
-CSS
+Cake Bake utilizes the following stack to help you with your cake obession:
 
 A SQL database with seperate table and class for user information and favorite recipes to query
 
 SQLAlchemy
 
-Flask server
+JSON
+
+Flask (Python)
+
+AJAX
 
 Jinja2  using template inheritance across all pages
 
+Vanilla JavaScript to manipulate the DOM
+
+HTML
+
+CSS
+
 Bootstrap 
 
-Several features that use JavaScript to manipulate the DOM
-
-JavaScript frontend libraries/frameworks
-
-AJAX/JSON
-
-Edaman API
+Edaman API - Recipe Search
+https://developer.edamam.com/edamam-docs-recipe-api
 
 
 Cake Bake 2.0 plans:
 
-Kroger API to search for ingredients near your location with Google Map API
+Kroger API to search for ingredients near your location 
+https://developer.kroger.com/documentation/public/getting-started/quick-start
+
+Google Map API for directions
+https://developers.google.com/maps/documentation
 
 Search function for recipes in Recipe Box
 
