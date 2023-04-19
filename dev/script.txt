@@ -1,0 +1,33 @@
+Live Personal Introduction (30 seconds)
+
+Hi, I’m Pauline and I decided to pivot careers from film & tv music licensing to software engineering. As of January 2023 there are 5.16 billion internet users worldwide and I’d like to help make a difference by building user friendly and secure web applications for users. Hackbright has helped me hone my passion for developing software and I’m really excited to show you my project! 
+
+Presentation (2 minutes)
+
+As a baking enthusiast, I wanted to create a niche app that specializes in my favorite hobby - baking cakes.
+
+Cake Bake is a full stack application where bakers have their own virtual space to find and save their favorite cake recipes.
+
+First I created a relational SQL database with tables for user information to create an account and login.
+
+SQLAlchemy is connected with Flask to execute queries for recipes and logging users in.
+
+I also created a table for favorite recipes so users can store, add and delete recipes pulled from the Edaman API.
+
+Need a recipe for all those apricots from the farmers market?  Cake Bake will do the searching for you.  And don’t worry about your almond allergy because Cake Bake will make sure to give you recipes without any almonds.
+
+I used Flask with Python as my framework and vanilla JavaScript to manipulate the DOM.
+AJAX was used to send requests and receive responses from the server without reloading the browser page. 
+
+Users have their own virtual recipe box.  Features include adding a recipe to the box or deleting it if needed.   Users also have a space to jot down notes on the recipe for adjustments or writer a review. 
+
+For my template system I went with Jinja2  and used template inheritance across all pages for my HTML.
+
+Bootstrap was my CSS framework to help with styling my pages and buttons.
+
+The icing on the app?  Your own trivia button full of cake facts from around the world!
+I wanted a fun feature and decided to go with a random cake fact generator because who doesn’t want to know that a fruit cake is still edible after 108 years?  
+
+An obstacle was figuring out the best way to store the cake trivia facts and I decided to go with a JSON database instead of my SQL Database.  I thought it would be nice to have a separate way to store information and doing it in JSON allows more flexibility to add or edit data. 
+
+I’m looking forward to adding a few features I didn’t have time to implement such as multiple timers, options to shop online, a link to play music and a Cake Personality quiz  to create a fun  personalized baking experience.  Thank you!

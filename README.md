@@ -53,3 +53,50 @@ Your cake personality quiz - If you were a cake, what kind of cake would you be?
 ![Search Page](static/img:/Search.jpeg)
 ![Recipe Box Page](static/img:/Box.jpeg)
 ![Home Page](static/img:/homepage.jpeg)
+
+
+## **INSTALLATION:**
+
+To run the app on your computer, please follow these steps:
+
+CLONE REPOSITORY:
+
+
+$ git clone https://github.com/Pau1een/Cake-Bake
+
+
+CREATE AND ACTIVATE A VIRTUAL ENVIRONMENT:
+
+
+   $ pip3 install virtualenv  
+   $ virtualenv env  
+   $ source env/bin/activate  
+
+
+INSTALL DEPENDENCIES:
+
+
+(env) $ pip3 install -r requirements.txt
+
+
+CREATE DATABASE:
+
+
+(env) $ createdb cake
+
+
+CREATE DATABASE TABLES:
+
+
+  (env) $ python3 -i model.py  
+  db.create_all()  
+
+
+START BACKEND SERVER:
+
+
+(env) $ python3 server.py
+
+## **YOUTUBE VIDEO:**
+
+See link under "About" on, https://youtu.be/k8Pv97TwN3Y
